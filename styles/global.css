@@ -1,0 +1,10 @@
+.app-sidebar {
+	background-color: #363636 !important;			
+}
+.app-sidebar .app-sidebar-logo {
+    border-bottom: none !important;
+}
+.card-content{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+    height: 75vh !important;
+}
