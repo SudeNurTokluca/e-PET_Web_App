@@ -4,7 +4,7 @@ import '../../../styles/login.css';
 const LogInPetOwner = () => {
   return (
     <>
-      <nav className='navbar--pet-owners'>
+      <nav className='navbar bg--pet-owners'>
         <div className='nav-image-wrapper'>
           <Image
             src='/images/logo-hayvanli-beyaz-bg-transparan.png'
@@ -28,7 +28,10 @@ const LogInPetOwner = () => {
           </div>
 
           <form className='login-container__form'>
-            <label className='login-container__form-label' htmlFor='email'>
+            <label
+              className='login-container__form-label label--pet-owners'
+              htmlFor='email'
+            >
               E-Mail Adresiniz
             </label>
             <input
@@ -40,9 +43,17 @@ const LogInPetOwner = () => {
               required
             />
 
-            <label className='login-container__form-label' htmlFor='password'>
-              Şifreniz
-            </label>
+            <div className='password-container'>
+              <label
+                className='login-container__form-label label--pet-owners'
+                htmlFor='password'
+              >
+                Şifreniz
+              </label>
+              <button className='login-container__form-label label--pet-owners'>
+                Şifremi Unuttum
+              </button>
+            </div>
             <input
               className='login-container__form-input'
               type='password'
@@ -53,11 +64,14 @@ const LogInPetOwner = () => {
             />
 
             <div className='login-container__form-buttons'>
-              <button className='login-container__form-button' type='submit'>
+              <button
+                className='login-container__form-button bg--pet-owners'
+                type='submit'
+              >
                 Giriş Yap
               </button>
               <a
-                className='login-container__form-button purple login-container__form-button--secondary'
+                className='login-container__form-button sign-up-link--pet-owners login-container__form-button--secondary'
                 href='/kayit-ol/evcil-hayvan-sahibi'
               >
                 Hesabınız yok mu?
