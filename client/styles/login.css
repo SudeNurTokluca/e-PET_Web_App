@@ -60,7 +60,7 @@ button {
   background-color: #fff;
 }
 
-.sign-up-container {
+.signup-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -144,4 +144,17 @@ button {
 
 .hidden {
   display: none;
+}
+
+.grid-1-1 {
+  display: grid;
+  padding: 2rem;
+
+  grid-template-columns: 1fr 1fr;
+}
+.grid-1-1 > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }

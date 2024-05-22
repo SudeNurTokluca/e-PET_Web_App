@@ -13,7 +13,8 @@
         <img src="./images/logo-hayvanli-beyaz-bg-transparan.png" alt="Logo" />
       </div>
     </nav>
-    <main class="login-page login--veterinarians">
+    <main class="page login--veterinarians">
+      <!--LOGIN-->
       <section class="login-container">
         <div class="login-container__header">
           <div class="header-image-wrapper">
@@ -26,7 +27,7 @@
           </div>
         </div>
 
-        <form class="login-container__form">
+        <form class="login-container__form" novalidate>
           <label
             class="login-container__form-label label--veterinarians"
             htmlFor="email"
@@ -71,16 +72,198 @@
             </button>
             <button
               class="login-container__form-button sign-up-link--veterinarians login-container__form-button--secondary"
-              id="sign-up-opener-veterinarians"
+              id="go-to-signup--veterinarians"
             >
               Hesabınız yok mu?
             </button>
           </div>
         </form>
       </section>
+
+      <!--SIGNUP-->
+      <section class="signup-container hidden">
+        <div class="login-container__header">
+          <div class="header-image-wrapper">
+            <img
+              src="./images/logo-hayvanli-mavi-bg-transparan.png"
+              alt="Pet Owners"
+              width="100px"
+              height="100px"
+            />
+          </div>
+        </div>
+
+        <form class="login-container__form grid-1-1" novalidate>
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="name"
+            >
+              Ad
+            </label>
+            <input
+              class="login-container__form-input"
+              type="name"
+              id="name"
+              name="name"
+              placeholder="Adınız"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="cellphone"
+            >
+              Telefon Numarası
+            </label>
+            <input
+              class="login-container__form-input"
+              type="cellphone"
+              id="cellphone"
+              name="cellphone"
+              placeholder="Başında sıfır olmadan giriniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="surname"
+            >
+              Soyad
+            </label>
+            <input
+              class="login-container__form-input"
+              type="surname"
+              id="surname"
+              name="surname"
+              placeholder="Soyadınız"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="email"
+            >
+              E-Mail
+            </label>
+            <input
+              class="login-container__form-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail adresiniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="address"
+            >
+              Adres
+            </label>
+            <input
+              class="login-container__form-input"
+              type="address"
+              id="address"
+              name="address"
+              placeholder="Klinik adresiniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="password"
+            >
+              Şifre
+            </label>
+            <input
+              class="login-container__form-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Şifrenizi giriniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="tckn"
+            >
+              TC Kimlik Numarası
+            </label>
+            <input
+              class="login-container__form-input"
+              type="tckn"
+              id="tckn"
+              name="tckn"
+              placeholder="T.C. Kimlik Numaranız"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="password-repeat"
+            >
+              Şifre Tekrar
+            </label>
+            <input
+              class="login-container__form-input"
+              type="password-repeat"
+              id="password-repeat"
+              name="password-repeat"
+              placeholder="Şifrenizi tekrar giriniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="grad-no"
+            >
+              Diploma Numarası
+            </label>
+            <input
+              class="login-container__form-input"
+              type="grad-no"
+              id="grad-no"
+              name="grad-no"
+              placeholder="Diploma numaranız"
+              required
+            />
+          </div>
+
+          <div class="login-container__form-buttons">
+            <button
+              class="login-container__form-button bg--veterinarians"
+              type="submit"
+            >
+              Kayıt Ol
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!--SIDE IMAGE-->
       <section class="login-side-image-wrapper">
         <img src="./images/veteriner-login-resim.jpg" alt="Pet Owners" />
       </section>
     </main>
+
+    <script src="./src/js/login-signup.js"></script>
   </body>
 </html>
