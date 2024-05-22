@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/login.css" />
+
+    <title>Evcil Hayvan Sahibi Giriş</title>
+  </head>
+  <body>
+    <nav class="navbar bg--veterinarians">
+      <div class="nav-image-wrapper">
+        <img src="./images/logo-hayvanli-beyaz-bg-transparan.png" alt="Logo" />
+      </div>
+    </nav>
+    <main class="login-page login--veterinarians">
+      <section class="login-container">
+        <div class="login-container__header">
+          <div class="header-image-wrapper">
+            <img
+              src="./images/logo-hayvanli-mavi-bg-transparan.png"
+              alt="Pet Owners"
+              width="100px"
+              height="100px"
+            />
+          </div>
+        </div>
+
+        <form class="login-container__form">
+          <label
+            class="login-container__form-label label--veterinarians"
+            htmlFor="email"
+          >
+            E-Mail Adresiniz
+          </label>
+          <input
+            class="login-container__form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-posta adresinizi girin"
+            required
+          />
+
+          <div class="password-container">
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="password"
+            >
+              Şifreniz
+            </label>
+            <button class="login-container__form-label label--veterinarians">
+              Şifremi Unuttum
+            </button>
+          </div>
+          <input
+            class="login-container__form-input"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Şifrenizi girin"
+            required
+          />
+
+          <div class="login-container__form-buttons">
+            <button
+              class="login-container__form-button bg--veterinarians"
+              type="submit"
+            >
+              Giriş Yap
+            </button>
+            <button
+              class="login-container__form-button sign-up-link--veterinarians login-container__form-button--secondary"
+              id="sign-up-opener-veterinarians"
+            >
+              Hesabınız yok mu?
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="login-side-image-wrapper">
+        <img src="./images/veteriner-login-resim.jpg" alt="Pet Owners" />
+      </section>
+    </main>
+  </body>
+</html>

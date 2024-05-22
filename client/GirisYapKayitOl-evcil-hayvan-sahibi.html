@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/login.css" />
+
+    <title>Evcil Hayvan Sahibi Giriş</title>
+  </head>
+  <body>
+    <nav class="navbar bg--pet-owners">
+      <div class="nav-image-wrapper">
+        <img src="./images/logo-hayvanli-beyaz-bg-transparan.png" alt="Logo" />
+      </div>
+    </nav>
+    <main class="page login--pet-owners">
+      <!--LOGIN-->
+      <section class="login-container">
+        <div class="login-container__header">
+          <div class="header-image-wrapper">
+            <img
+              src="./images/logo-hayvanli-turuncu-bg-transparan.png"
+              alt="Pet Owners"
+              width="100px"
+              height="100px"
+            />
+          </div>
+        </div>
+
+        <form class="login-container__form">
+          <label
+            class="login-container__form-label label--pet-owners"
+            htmlFor="email"
+          >
+            E-Mail Adresiniz
+          </label>
+          <input
+            class="login-container__form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-posta adresinizi girin"
+            required
+          />
+
+          <div class="password-container">
+            <label
+              class="login-container__form-label label--pet-owners"
+              htmlFor="password"
+            >
+              Şifreniz
+            </label>
+            <button class="login-container__form-label label--pet-owners">
+              Şifremi Unuttum
+            </button>
+          </div>
+          <input
+            class="login-container__form-input"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Şifrenizi girin"
+            required
+          />
+
+          <div class="login-container__form-buttons">
+            <button
+              class="login-container__form-button bg--pet-owners"
+              type="submit"
+            >
+              Giriş Yap
+            </button>
+            <a
+              class="login-container__form-button sign-up-link--pet-owners login-container__form-button--secondary"
+              href="/kayit-ol/evcil-hayvan-sahibi"
+            >
+              Hesabınız yok mu?
+            </a>
+          </div>
+        </form>
+      </section>
+
+      <!--SIGNUP-->
+      <section class="signup-container hidden"></section>
+
+      <!--SIDE IMAGE-->
+      <section class="login-side-image-wrapper">
+        <img src="./images/evcil-hayvan-login-resim.jpg" alt="Pet Owners" />
+      </section>
+    </main>
+  </body>
+</html>
