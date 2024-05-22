@@ -2,6 +2,8 @@
 
 const dhaPetOwners = document.getElementById('go-to-signup--pet-owners');
 const dhaVeterinarians = document.getElementById('go-to-signup--veterinarians');
+const openModal = document.getElementById('forgot-password');
+const closeModal = document.getElementById('close-modal');
 
 const togglePages = () => {
   document.querySelector('.login-container').classList.add('hidden');
@@ -16,4 +18,14 @@ dhaPetOwners?.addEventListener('click', e => {
 dhaVeterinarians?.addEventListener('click', e => {
   e.preventDefault();
   togglePages();
+});
+
+openModal?.addEventListener('click', e => {
+  e.preventDefault();
+
+  document.querySelector('.overlay').classList.remove('hidden');
+});
+
+closeModal?.addEventListener('click', () => {
+  document.querySelector('.overlay').classList.add('hidden');
 });

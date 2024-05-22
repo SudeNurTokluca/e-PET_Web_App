@@ -14,8 +14,30 @@
       </div>
     </nav>
     <main class="page login--pet-owners">
+      <!--FORGOT PASSWORD MODAL-->
+      <div class="overlay hidden" id="forgot-password-modal">
+        <div class="modal">
+          <span class="close-modal" id="close-modal">&times;</span>
+          <p>
+            Şifrenizi sıfırlamak için e-posta adresinizi girin. Size bir e-posta
+            göndereceğiz.
+          </p>
+          <input
+            class="login-container__form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-posta adresinizi girin"
+            required
+          />
+          <button class="login-container__form-button bg--pet-owners">
+            Gönder
+          </button>
+        </div>
+      </div>
+
       <!--LOGIN-->
-      <section class="login-container hidden">
+      <section class="login-container">
         <div class="login-container__header">
           <div class="header-image-wrapper">
             <img
@@ -50,7 +72,10 @@
             >
               Şifreniz
             </label>
-            <button class="login-container__form-label label--pet-owners">
+            <button
+              class="login-container__form-label label--pet-owners"
+              id="forgot-password"
+            >
               Şifremi Unuttum
             </button>
           </div>
@@ -81,7 +106,7 @@
       </section>
 
       <!--SIGNUP-->
-      <section class="signup-container">
+      <section class="signup-container hidden">
         <div class="login-container__header">
           <div class="header-image-wrapper">
             <img
