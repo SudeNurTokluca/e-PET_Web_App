@@ -44,9 +44,8 @@
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-}
-.review:nth-child(1) {
-  border-radius: 0.625rem 0 0 0 !important;
+  margin: 10px;
+  border-radius: 8px;
 }
 
 .rating {

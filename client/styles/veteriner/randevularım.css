@@ -1,0 +1,8 @@
+.card-body {
+  display: grid;
+
+  /* make a grid column divide 70% and 30% */
+  grid-template-columns: 65% 35%;
+
+  gap: 10px;
+}
