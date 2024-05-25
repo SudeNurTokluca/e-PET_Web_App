@@ -478,9 +478,23 @@
                         <ul class="days" id="days"></ul>
                       </div>
 
-                      <div class="graph"></div>
+                      <div class="graph">
+                        <div class="container">
+                          <canvas id="visitChart"></canvas>
+                        </div>
+                      </div>
 
-                      <div class="info"></div>
+                      <div class="info">
+                        <div class="summary">
+                          <h5>Aylık Ziyaret Sayısı</h5>
+                          <h1 id="monthly-visitations">0</h1>
+                        </div>
+
+                        <div class="summary">
+                          <h5>Randevu Değerlendirme Sayısı</h5>
+                          <h1 id="appointment-evaluations">0</h1>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -502,6 +516,7 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./src/js/veteriner-page.js"></script>
     <!--end::Javascript-->
   </body>
