@@ -1,8 +1,104 @@
 .card-body {
   display: grid;
-
-  /* make a grid column divide 70% and 30% */
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 70% 30%;
 
   gap: 10px;
+}
+
+.list-container > h1 {
+  text-align: center;
+}
+
+/* Calender */
+
+ul {
+  list-style-type: none;
+}
+/* Month header */
+.month {
+  padding: 10px;
+  width: 100%;
+  border-radius: 0.625rem 0.625rem 0 0;
+  background: #265073;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.29%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 0;
+  height: 25%;
+  background: #eee;
+  border-radius: 0 0 0.625rem 0.625rem;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 14.28%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important;
+}
+
+.has-appointment {
+  background-color: #ff0000; /* Change this color as per your preference */
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
 }

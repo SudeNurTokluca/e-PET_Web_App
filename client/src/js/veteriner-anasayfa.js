@@ -19,21 +19,15 @@ const exampleComments = {
   },
 };
 
+// Calender
+
 const commentsEl = document.querySelector('.reviews');
 const monthYearElement = document.getElementById('month-year');
 const daysElement = document.getElementById('days');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
-
-let now = new Date();
-let currentMonth = now.getMonth();
-let currentYear = now.getFullYear();
-
-// Calender
-
 const monthFormatter = new Intl.DateTimeFormat('tr-TR', { month: 'long' });
 const dayFormatter = new Intl.DateTimeFormat('tr-TR', { weekday: 'short' });
-
 const monthNames = Array.from({ length: 12 }, (_, i) =>
   monthFormatter.format(new Date(2020, i))
 );
@@ -41,42 +35,46 @@ const weekDays = Array.from({ length: 7 }, (_, i) =>
   dayFormatter.format(new Date(2020, 0, i + 4))
 );
 
+let now = new Date();
+let currentMonth = now.getMonth();
+let currentYear = now.getFullYear();
+
+export function renderCalendar(month, year) {
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDay = new Date(year, month + 1, 0).getDate();
+
+  monthYearElement.innerHTML = `${monthNames[month]}<br><span style="font-size: 18px">${year}</span>`;
+
+  daysElement.innerHTML = '';
+  for (let i = 1; i < firstDay; i++) {
+    daysElement.innerHTML += '<li></li>';
+  }
+
+  for (let i = 1; i <= lastDay; i++) {
+    daysElement.innerHTML += `<li>${i}</li>`;
+  }
+}
+
+export function changeMonth(direction) {
+  if (direction === 'next') {
+    if (currentMonth === 11) {
+      currentMonth = 0;
+      currentYear++;
+    } else {
+      currentMonth++;
+    }
+  } else if (direction === 'prev') {
+    if (currentMonth === 0) {
+      currentMonth = 11;
+      currentYear--;
+    } else {
+      currentMonth--;
+    }
+  }
+  renderCalendar(currentMonth, currentYear);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-  function renderCalendar(month, year) {
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDay = new Date(year, month + 1, 0).getDate();
-
-    monthYearElement.innerHTML = `${monthNames[month]}<br><span style="font-size: 18px">${year}</span>`;
-
-    daysElement.innerHTML = '';
-    for (let i = 1; i < firstDay; i++) {
-      daysElement.innerHTML += '<li></li>';
-    }
-
-    for (let i = 1; i <= lastDay; i++) {
-      daysElement.innerHTML += `<li>${i}</li>`;
-    }
-  }
-
-  function changeMonth(direction) {
-    if (direction === 'next') {
-      if (currentMonth === 11) {
-        currentMonth = 0;
-        currentYear++;
-      } else {
-        currentMonth++;
-      }
-    } else if (direction === 'prev') {
-      if (currentMonth === 0) {
-        currentMonth = 11;
-        currentYear--;
-      } else {
-        currentMonth--;
-      }
-    }
-    renderCalendar(currentMonth, currentYear);
-  }
-
   prevButton.addEventListener('click', function () {
     changeMonth('prev');
   });
@@ -189,10 +187,4 @@ document.addEventListener('DOMContentLoaded', function () {
   const appointmentEvaluationsEl = (document.getElementById(
     'appointment-evaluations'
   ).textContent = formatter.format(2085));
-
-  document
-    .getElementById('support-button')
-    .addEventListener('click', function () {
-      alert('Destek bölümüne yönlendiriliyorsunuz!');
-    });
 });

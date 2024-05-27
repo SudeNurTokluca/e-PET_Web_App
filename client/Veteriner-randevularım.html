@@ -438,8 +438,160 @@
                   <div class="card card-content" style="height: 80vh">
                     <div class="card-body">
                       <!--------------------------------------------------BURAYI DOlDUR----------------------------------------------------->
-                      <div class="list-container"></div>
-                      <div class="appointment-calender"></div>
+                      <div class="list-container">
+                        <h1>
+                          <i class="bi bi-calendar-check-fill"></i> Randevularım
+                        </h1>
+                        <table
+                          id="example"
+                          class="display nowrap"
+                          style="width: 100%"
+                        >
+                          <thead>
+                            <tr>
+                              <th>Tarih/Saat</th>
+                              <th>Evcil Hayvan Sahibi</th>
+                              <th>Cinsi</th>
+                              <th>Randevu Sebebi</th>
+                              <th>Randevu Durumu</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>2024-05-27 10:00</td>
+                              <td>Ahmet Yılmaz</td>
+                              <td>Köpek</td>
+                              <td>Kontrol</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-05-28 11:00</td>
+                              <td>Aylin Demir</td>
+                              <td>Kedi</td>
+                              <td>Aşı</td>
+                              <td>Beklemede</td>
+                            </tr>
+                            <tr>
+                              <td>2024-05-29 09:00</td>
+                              <td>Mehmet Ak</td>
+                              <td>Kuş</td>
+                              <td>Muayene</td>
+                              <td>İptal Edildi</td>
+                            </tr>
+                            <tr>
+                              <td>2024-05-30 15:00</td>
+                              <td>Zeynep Çelik</td>
+                              <td>Köpek</td>
+                              <td>Operasyon</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-05-31 14:00</td>
+                              <td>Ali Vural</td>
+                              <td>Kedi</td>
+                              <td>Kontrol</td>
+                              <td>Beklemede</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-01 10:30</td>
+                              <td>Berkay Kılıç</td>
+                              <td>Köpek</td>
+                              <td>Kontrol</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-02 12:00</td>
+                              <td>Ece Arslan</td>
+                              <td>Kedi</td>
+                              <td>Aşı</td>
+                              <td>Beklemede</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-03 13:00</td>
+                              <td>Deniz Özkan</td>
+                              <td>Köpek</td>
+                              <td>Muayene</td>
+                              <td>İptal Edildi</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-04 09:30</td>
+                              <td>Furkan Çelik</td>
+                              <td>Kuş</td>
+                              <td>Kontrol</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-05 16:00</td>
+                              <td>Gizem Yıldırım</td>
+                              <td>Kedi</td>
+                              <td>Operasyon</td>
+                              <td>Beklemede</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-06 14:30</td>
+                              <td>Hakan Uysal</td>
+                              <td>Köpek</td>
+                              <td>Aşı</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-07 11:00</td>
+                              <td>İrem Şahin</td>
+                              <td>Kedi</td>
+                              <td>Muayene</td>
+                              <td>İptal Edildi</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-08 10:00</td>
+                              <td>Canan Eroğlu</td>
+                              <td>Köpek</td>
+                              <td>Kontrol</td>
+                              <td>Beklemede</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-09 15:00</td>
+                              <td>Kemal Yılmaz</td>
+                              <td>Kuş</td>
+                              <td>Aşı</td>
+                              <td>Onaylandı</td>
+                            </tr>
+                            <tr>
+                              <td>2024-06-10 13:30</td>
+                              <td>Leyla Demir</td>
+                              <td>Kedi</td>
+                              <td>Operasyon</td>
+                              <td>Beklemede</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="appointment-calender">
+                        <div class="month">
+                          <ul>
+                            <li class="prev">&#10094;</li>
+                            <li class="next">&#10095;</li>
+                            <li id="month-year"></li>
+                          </ul>
+                        </div>
+
+                        <ul class="weekdays">
+                          <li>Pt</li>
+                          <li>Sa</li>
+                          <li>Ça</li>
+                          <li>Pe</li>
+                          <li>Cu</li>
+                          <li>Ct</li>
+                          <li>Pz</li>
+                        </ul>
+
+                        <ul class="days" id="days"></ul>
+
+                        <div class="buttons">
+                          <button class="btn btn-primary">Boş Gün Ekle</button>
+                          <button class="btn btn-primary">Dolu Gün Ekle</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -461,6 +613,17 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script>
+      new DataTable('#example', {
+        scrollX: true,
+        scrollY: 370,
+        paging: false,
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json',
+        },
+      });
+    </script>
+    <script src="./src/js/veteriner-randevularim.js" type="module"></script>
 
     <!--end::Javascript-->
   </body>
