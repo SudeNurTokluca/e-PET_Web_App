@@ -8,12 +8,12 @@
     <title>Evcil Hayvan Sahibi Giriş</title>
   </head>
   <body>
-    <nav class="navbar bg--pet-owners">
+    <nav class="navbar bg--veterinarians">
       <div class="nav-image-wrapper">
         <img src="./images/logo-hayvanli-beyaz-bg-transparan.png" alt="Logo" />
       </div>
     </nav>
-    <main class="page login--pet-owners">
+    <main class="page login--veterinarians">
       <!--FORGOT PASSWORD MODAL-->
       <div class="overlay hidden" id="forgot-password-modal"></div>
       <div class="modal hidden">
@@ -30,86 +30,17 @@
           placeholder="E-posta adresinizi girin"
           required
         />
-        <button class="login-container__form-button bg--pet-owners">
+        <button class="login-container__form-button bg--veterinarians">
           Gönder
         </button>
       </div>
 
-      <!--LOGIN-->
-      <section class="login-container">
-        <div class="login-container__header">
-          <div class="header-image-wrapper">
-            <img
-              src="./images/logo-hayvanli-turuncu-bg-transparan.png"
-              alt="Pet Owners"
-              width="100px"
-              height="100px"
-            />
-          </div>
-        </div>
-
-        <form class="login-container__form" novalidate>
-          <label
-            class="login-container__form-label label--pet-owners"
-            htmlFor="email"
-          >
-            E-Mail Adresiniz
-          </label>
-          <input
-            class="login-container__form-input"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="E-posta adresinizi girin"
-            required
-          />
-
-          <div class="password-container">
-            <label
-              class="login-container__form-label label--pet-owners"
-              htmlFor="password"
-            >
-              Şifreniz
-            </label>
-            <button
-              class="login-container__form-label label--pet-owners"
-              id="forgot-password"
-            >
-              Şifremi Unuttum
-            </button>
-          </div>
-          <input
-            class="login-container__form-input"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Şifrenizi girin"
-            required
-          />
-
-          <div class="login-container__form-buttons">
-            <button
-              class="login-container__form-button bg--pet-owners"
-              type="submit"
-            >
-              Giriş Yap
-            </button>
-            <button
-              class="login-container__form-button sign-up-link--pet-owners login-container__form-button--secondary"
-              id="go-to-signup--pet-owners"
-            >
-              Hesabınız yok mu?
-            </button>
-          </div>
-        </form>
-      </section>
-
       <!--SIGNUP-->
-      <section class="signup-container hidden">
+      <section class="signup-container">
         <div class="login-container__header">
           <div class="header-image-wrapper">
             <img
-              src="./images/logo-hayvanli-turuncu-bg-transparan.png"
+              src="./images/logo-hayvanli-mavi-bg-transparan.png"
               alt="Pet Owners"
               width="100px"
               height="100px"
@@ -120,7 +51,7 @@
         <form class="login-container__form grid-1-1" novalidate>
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
+              class="login-container__form-label label--veterinarians"
               htmlFor="name"
             >
               Ad
@@ -137,24 +68,24 @@
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
-              htmlFor="email"
+              class="login-container__form-label label--veterinarians"
+              htmlFor="cellphone"
             >
-              E-Mail
+              Telefon Numarası
             </label>
             <input
               class="login-container__form-input"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="E-mail adresiniz"
+              type="cellphone"
+              id="cellphone"
+              name="cellphone"
+              placeholder="Başında sıfır olmadan giriniz"
               required
             />
           </div>
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
+              class="login-container__form-label label--veterinarians"
               htmlFor="surname"
             >
               Soyad
@@ -171,7 +102,41 @@
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
+              class="login-container__form-label label--veterinarians"
+              htmlFor="email"
+            >
+              E-Mail
+            </label>
+            <input
+              class="login-container__form-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail adresiniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
+              htmlFor="address"
+            >
+              Adres
+            </label>
+            <input
+              class="login-container__form-input"
+              type="address"
+              id="address"
+              name="address"
+              placeholder="Klinik adresiniz"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--veterinarians"
               htmlFor="password"
             >
               Şifre
@@ -188,24 +153,24 @@
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
-              htmlFor="address"
+              class="login-container__form-label label--veterinarians"
+              htmlFor="tckn"
             >
-              Adres
+              TC Kimlik Numarası
             </label>
             <input
               class="login-container__form-input"
-              type="address"
-              id="address"
-              name="address"
-              placeholder="Ev adresiniz"
+              type="tckn"
+              id="tckn"
+              name="tckn"
+              placeholder="T.C. Kimlik Numaranız"
               required
             />
           </div>
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
+              class="login-container__form-label label--veterinarians"
               htmlFor="password-repeat"
             >
               Şifre Tekrar
@@ -222,24 +187,24 @@
 
           <div>
             <label
-              class="login-container__form-label label--pet-owners"
-              htmlFor="cellphone"
+              class="login-container__form-label label--veterinarians"
+              htmlFor="grad-no"
             >
-              Telefon Numarası
+              Diploma Numarası
             </label>
             <input
               class="login-container__form-input"
-              type="cellphone"
-              id="cellphone"
-              name="cellphone"
-              placeholder="Başında sıfır olmadan giriniz"
+              type="grad-no"
+              id="grad-no"
+              name="grad-no"
+              placeholder="Diploma numaranız"
               required
             />
           </div>
 
           <div class="login-container__form-buttons">
             <button
-              class="login-container__form-button bg--pet-owners"
+              class="login-container__form-button bg--veterinarians"
               type="submit"
             >
               Kayıt Ol
@@ -250,7 +215,7 @@
 
       <!--SIDE IMAGE-->
       <section class="login-side-image-wrapper">
-        <img src="./images/evcil-hayvan-login-resim.jpg" alt="Pet Owners" />
+        <img src="./images/veteriner-login-resim.jpg" alt="Pet Owners" />
       </section>
     </main>
 
