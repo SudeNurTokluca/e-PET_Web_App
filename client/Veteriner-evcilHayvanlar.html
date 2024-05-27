@@ -195,39 +195,23 @@
                           </div>
                         </div>
                         <div class="menu-item">
-                          <a class="menu-link" href="HayvanSahibi-anasayfa.html" >
+                          <a class="menu-link" href="Veteriner-anasayfa.html" >
                             <span class="menu-icon">
                             <i class="bi bi-house-door-fill fs-2"></i>
                             </span>
                             <span class="menu-title">Anasayfa</span>
                           </a>
-                        </div>  
+                        </div>                                           
                         <div class="menu-item">
-                          <a class="menu-link" href="HayvanSahibi-veterinerKlinikleri.html" >
-                            <span class="menu-icon">
-                            <i class="bi bi-buildings-fill fs-2"></i>
-                            </span>
-                            <span class="menu-title">Veteriner Klinikleri</span>
-                          </a>
-                        </div>  
-                        <div class="menu-item">
-                          <a class="menu-link" href="HayvanSahibi-randevularım.html" >
+                          <a class="menu-link" href="Veteriner-evcilHayvanlar.html" >
                             <span class="menu-icon">
                             <i class="bi bi-clipboard2-fill fs-2"></i>
                             </span>
-                            <span class="menu-title">Randevularım</span>
-                          </a>
-                        </div>                                   
-                        <div class="menu-item">
-                          <a class="menu-link" href="HayvanSahibi-evcilHayvanlarim.html" >
-                            <span class="menu-icon">
-                            <i class="bi bi-heart-fill fs-2"></i>
-                            </span>
-                            <span class="menu-title">Evcil Hayvanlarım</span>
+                            <span class="menu-title">Randevular / Muayeneler</span>
                           </a>
                         </div>
                         <div class="menu-item">
-                          <a class="menu-link" href="HayvanSahibi-hesabım-bilgilerim.html" >
+                          <a class="menu-link" href="Veteriner-hesabim.html" >
                             <span class="menu-icon">
                             <i class="bi bi-person-fill fs-2"></i>
                             </span>
@@ -426,7 +410,7 @@
                                   <span></span>
                                   Yalnızca Benim Muayenelerim
                               </label>
-                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_1"><i class="bi bi-plus-lg"></i>Yeni Reçete Ekle</button>
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_2"><i class="bi bi-plus-lg"></i>Yeni Reçete Ekle</button>
                               </div>
                               <table id="example2" class="display nowrap" style="width:100%">
                                 <thead>
@@ -521,7 +505,7 @@
                                   <span></span>
                                   Yalnızca Benim Muayenelerim
                               </label>
-                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_1"><i class="bi bi-plus-lg"></i>Yeni Tetkik Ekle</button>
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_3"><i class="bi bi-plus-lg"></i>Yeni Tetkik Ekle</button>
                               </div>
                               <table id="example3" class="display nowrap" style="width:100%">
                                 <thead>
@@ -669,6 +653,86 @@
         </div>
     </div>
 </div>
+<div class="modal fade" tabindex="-1" id="kt_modal_2">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni Reçete Ekle</h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+              <div class="my-5">
+                <label class="mb-2">Reçete Numarası</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="my-5">
+                <label class="mb-2">Teşhis</label>
+                <input type="text" class="form-control" />
+              </div>
+              
+              <div class="my-5">
+                <label class="mb-2">Reçete Tarihi</label>
+                <input id="startDate" class="form-control" type="date"/>
+                
+              </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" id="kt_modal_3">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni Tetkik Ekle</h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+              <label class="mb-2">Tetkik Tipi</label>
+                <select class="form-select" data-control="select2" data-placeholder="Lütfen Seçiniz">
+                  <option></option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+              </select>
+              <div class="my-5">
+                <label for="formFile" class="form-label">Dosya Yükleme</label>
+  <input class="form-control" type="file" id="formFile">
+              </div>
+              <div class="my-5">
+                <label class="mb-2">Açıklama</label>
+                <input type="text" class="form-control" />
+              </div>
+              
+              <div class="my-5">
+                <label class="mb-2">Tetkik Tarihi</label>
+                <input id="startDate" class="form-control" type="date"/>
+                
+              </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
 		<!--end::App-->
 			
 		<!--begin::Javascript-->
@@ -683,6 +747,9 @@
           scrollY: 300,
           paging: false,
           searching: false,
+          language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+            }
       });
           </script>
           <script>
@@ -691,6 +758,9 @@
           scrollY: 300,
           paging: false,
           searching: false,
+          language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+            }
       });
           </script>
           <script>
@@ -699,6 +769,9 @@
           scrollY: 300,
           paging: false,
           searching: false,
+          language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+            }
       });
           </script>
       
