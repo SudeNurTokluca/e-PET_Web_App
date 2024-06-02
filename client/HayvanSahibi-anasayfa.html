@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<!--begin::Head-->
+	<head>
+		<title>e-pET</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<!--begin::Fonts(mandatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome for star icons -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <style>
+          
+    
+            .star-rating input[type="radio"] {
+                display: none ;
+            }
+    
+            .star-rating label {
+                color: #ddd;
+                font-size: 2em;
+                padding: 0;
+                cursor: pointer !important;
+            }
+    
+
+            .star-rating input[type="radio"]:checked ~ label,
+            .star-rating label:hover,
+            .star-rating label:hover ~ label {
+                color: #f5b301 !important;
+            }
+       
+      
+    
+			.app-sidebar {
+				background-color: #242424 !important;			
+			}
+      .app-header{
+        height: 60px !important;
+      }
+      
+      th,td{
+        text-align: start !important;
+      }
+      
+		</style>
+
+        <script>
+            function submitForm() {
+                document.getElementById("ratingForm").submit();
+            }
+        </script>
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+		<!--begin::App-->
+		<div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+			<!--begin::Page-->
+			<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: true, lg: true}" data-kt-sticky-name="app-header-minimize" data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="false" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"  >
+              <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+                <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+                  <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+                    <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1">
+                      <span class="path1"></span>
+                      <span class="path2"></span>
+                    </i>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                  <a href="index.html" class="d-lg-none">
+                     <img  src="/images/logo-hayvanli-turuncu-bg-transparan.png" class="h-30px" /> 
+                  </a>
+                </div>
+                <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+                  <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
+                    <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
+                      
+                    </div>
+                  </div>
+                  <div class="app-navbar flex-shrink-0">
+                    <div class="app-navbar-item ms-1 ms-md-4">
+                      <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" id="kt_menu_item_wow">
+                        <i class="ki-duotone ki-notification-bing fs-2">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                          <span class="path3"></span>
+                          <span class="path4"></span>
+                        </i>
+                      </div>
+                      <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
+                        <div class="d-flex flex-column bgi-no-repeat rounded-top" >
+                          <h3 class="text-white fw-semibold px-9 mt-10 mb-6">Bildirim Kutusu</h3>
+                          <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
+                            <li class="nav-item">
+                              <a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab" href="#kt_topbar_notifications_1">Bildirimler</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="tab-content">
+                          <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
+                            <div class="scroll-y mh-325px my-5 px-8">
+                              <div class="d-flex flex-stack py-4">
+                                <div class="d-flex align-items-center">
+                                  <div class="symbol symbol-35px me-4">
+                                    <span class="symbol-label bg-light-primary">
+                                      <i class="ki-duotone ki-abstract-28 fs-2 text-primary">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                      </i>
+                                    </span>
+                                  </div>
+                                  <div class="mb-0 me-2">
+                                    <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
+                                    <div class="text-gray-500 fs-7">Phase 1 development</div>
+                                  </div>
+                                </div>
+                                <span class="badge badge-light fs-8">1 hr</span>
+                              </div>
+                            
+                              <div class="d-flex flex-stack py-4">
+                                <div class="d-flex align-items-center">
+                                  <div class="symbol symbol-35px me-4">
+                                    <span class="symbol-label bg-light-warning">
+                                      <i class="ki-duotone ki-color-swatch fs-2 text-warning">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                        <span class="path6"></span>
+                                        <span class="path7"></span>
+                                        <span class="path8"></span>
+                                        <span class="path9"></span>
+                                        <span class="path10"></span>
+                                        <span class="path11"></span>
+                                        <span class="path12"></span>
+                                        <span class="path13"></span>
+                                        <span class="path14"></span>
+                                        <span class="path15"></span>
+                                        <span class="path16"></span>
+                                        <span class="path17"></span>
+                                        <span class="path18"></span>
+                                        <span class="path19"></span>
+                                        <span class="path20"></span>
+                                        <span class="path21"></span>
+                                      </i>
+                                    </span>
+                                  </div>
+                                  <div class="mb-0 me-2">
+                                    <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon Assets</a>
+                                    <div class="text-gray-500 fs-7">Collection of SVG icons</div>
+                                  </div>
+                                </div>
+                                <span class="badge badge-light fs-8">20 March</span>
+                              </div>
+
+                            </div>
+                           
+                          </div>                       
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
+                      <div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                        <img src="assets/media/avatars/300-3.jpg" class="rounded-3" alt="user" />
+                      </div>
+                      <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
+                        <div class="menu-item px-3">
+                          <div class="menu-content d-flex align-items-center px-3">
+                            <div class="symbol symbol-50px me-5">
+                              <img src="assets/media/avatars/300-3.jpg" />
+                            </div>
+                            <div class="d-flex flex-column">
+                              <div class="fw-bold d-flex align-items-center fs-5">Robert Fox</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="separator my-2"></div>
+                        <div class="menu-item px-5">
+                          <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Çıkış Yap</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+              <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+                <div class="app-sidebar-logo px-6 mt-5 d-flex justify-content-center" id="kt_app_sidebar_logo">
+                  <a href="HayvanSahibi-evcilHayvanlarim.html">
+                    <img alt="Logo" src="images/logo-hayvanli-beyaz-bg-transparan.png" class="h-75px app-sidebar-logo-default" />
+                    <img alt="Logo" src="images/logo-hayvanli-beyaz-bg-transparan.png" class="h-20px app-sidebar-logo-minimize" /> 
+                  </a>
+                  <div id="kt_app_sidebar_toggle" class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="app-sidebar-minimize">
+                    <i class="ki-duotone ki-black-left-line fs-3 rotate-180">
+                      <span class="path1"></span>
+                      <span class="path2"></span>
+                    </i>
+                  </div>
+                </div>
+                <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
+                  <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
+                    <div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+                      <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+                       
+                        <div class="menu-item pt-5">
+                          <div class="menu-content">
+                            <span class="menu-heading fw-bold text-uppercase fs-7">İşlemler</span>
+                          </div>
+                        </div>
+                        <div class="menu-item">
+                          <a class="menu-link" href="HayvanSahibi-anasayfa.html" >
+                            <span class="menu-icon">
+                            <i class="bi bi-house-door-fill fs-2"></i>
+                            </span>
+                            <span class="menu-title">Anasayfa</span>
+                          </a>
+                        </div>  
+                        <div class="menu-item">
+                          <a class="menu-link" href="HayvanSahibi-veterinerKlinikleri.html" >
+                            <span class="menu-icon">
+                            <i class="bi bi-buildings-fill fs-2"></i>
+                            </span>
+                            <span class="menu-title">Veteriner Klinikleri</span>
+                          </a>
+                        </div>
+                        <div class="menu-item">
+                          <a class="menu-link" href="HayvanSahibi-randevularım.html" >
+                            <span class="menu-icon">
+                            <i class="bi bi-clipboard2-fill fs-2"></i>
+                            </span>
+                            <span class="menu-title">Randevularım</span>
+                          </a>
+                        </div>                               
+                        <div class="menu-item">
+                          <a class="menu-link" href="HayvanSahibi-evcilHayvanlarim.html" >
+                            <span class="menu-icon">
+                            <i class="bi bi-heart-fill fs-2"></i>
+                            </span>
+                            <span class="menu-title">Evcil Hayvanlarım</span>
+                          </a>
+                        </div>
+                        <div class="menu-item">
+                          <a class="menu-link" href="HayvanSahibi-hesabım-bilgilerim.html" >
+                            <span class="menu-icon">
+                            <i class="bi bi-person-fill fs-2"></i>
+                            </span>
+                            <span class="menu-title">Hesabım</span>
+                          </a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
+                  <a href="" class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100 mb-3" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" >
+                      <span class="btn-label"> <i class="bi bi-question-circle-fill fs-3 me-2"></i>Destek</span>
+                      <i class="bi bi-question-circle-fill btn-icon fs-2 m-0"></i>                   
+                    </a>
+                  
+                </div>
+              </div>
+              <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                <div class="d-flex flex-column flex-column-fluid">
+                  <div id="kt_app_content" class="app-content flex-column-fluid">
+                    <div id="kt_app_content_container" class="app-container container-fluid p-1">
+                      <div class="card card-content" >
+                        <div class="card-body">
+
+             <!--begin::Timeline widget 3-->
+											<div class="card h-md-100">
+												<!--begin::Header-->
+												<div class="card-header border-0 pt-5">
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold text-gray-900">Randevu Takvimi</span>
+													</h3>
+												</div>
+												<!--end::Header-->
+												<!--begin::Body-->
+												<div class="card-body pt-7 px-0">
+													<!--begin::Nav-->
+													<ul class="nav nav-stretch nav-pills nav-pills-custom nav-pills-active-custom d-flex justify-content-between mb-8 px-5">
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger active" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_1">
+																<span class="fs-7 fw-semibold">Cu</span>
+																<span class="fs-6 fw-bold">5</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_2">
+																<span class="fs-7 fw-semibold">Ct</span>
+																<span class="fs-6 fw-bold">6</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_3">
+																<span class="fs-7 fw-semibold">Pa</span>
+																<span class="fs-6 fw-bold">7</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger bg-warning" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_4">
+																<span class="fs-7 fw-semibold">Pt</span>
+																<span class="fs-6 fw-bold">8</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_5">
+																<span class="fs-7 fw-semibold">Sa</span>
+																<span class="fs-6 fw-bold">9</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_6">
+																<span class="fs-7 fw-semibold">Ça</span>
+																<span class="fs-6 fw-bold">10</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_7">
+																<span class="fs-7 fw-semibold">Pe</span>
+																<span class="fs-6 fw-bold">11</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger bg-warning" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_8">
+																<span class="fs-7 fw-semibold">Cu</span>
+																<span class="fs-6 fw-bold">12</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_9">
+																<span class="fs-7 fw-semibold">Ct</span>
+																<span class="fs-6 fw-bold">13</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_10">
+																<span class="fs-7 fw-semibold">Pa</span>
+																<span class="fs-6 fw-bold">14</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+														<!--begin::Nav item-->
+														<li class="nav-item p-0 ms-0">
+															<!--begin::Date-->
+															<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px py-4 px-3 btn-active-danger" data-bs-toggle="tab" href="#kt_timeline_widget_3_tab_content_11">
+																<span class="fs-7 fw-semibold">Pt</span>
+																<span class="fs-6 fw-bold">15</span>
+															</a>
+															<!--end::Date-->
+														</li>
+														<!--end::Nav item-->
+													</ul>
+													<!--end::Nav-->
+													<!--begin::Tab Content-->
+													<div class="tab-content mb-2 px-9">
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5 active show " id="kt_timeline_widget_3_tab_content_1">
+                                                                <h5 >Randevunuz bulunmamaktadır.</h5>
+														</div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_2">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                        </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_3">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_4">
+                                                            <!--begin::Wrapper-->
+															<div class="d-flex align-items-center mb-6">
+																<!--begin::Bullet-->
+																<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+																<!--end::Bullet-->
+																<!--begin::Info-->
+																<div class="flex-grow-1 me-5">
+																	<!--begin::Time-->
+																	<div class="text-gray-800 fw-semibold fs-2">14:00 Aşı Randevusu
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Description-->
+																	<div class="text-gray-700 fw-semibold fs-6">Bensu Sezgin</div>
+																	<!--end::Description-->
+																	<!--begin::Link-->
+																	<div class="text-gray-500 fw-semibold fs-7">Paşa</div>
+																	<!--end::Link-->
+																</div>
+																<!--end::Info-->
+								
+															</div>
+															<!--end::Wrapper-->
+														</div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_5">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5 " id="kt_timeline_widget_3_tab_content_6">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade  border-top pt-5" id="kt_timeline_widget_3_tab_content_7">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_8">
+                                                            <!--begin::Wrapper-->
+															<div class="d-flex align-items-center mb-6">
+																<!--begin::Bullet-->
+																<span data-kt-element="bullet" class="bullet bullet-vertical d-flex align-items-center min-h-70px mh-100 me-4 bg-success"></span>
+																<!--end::Bullet-->
+																<!--begin::Info-->
+																<div class="flex-grow-1 me-5">
+																	<!--begin::Time-->
+																	<div class="text-gray-800 fw-semibold fs-2">15:00 Muayene Randevusu
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Description-->
+																	<div class="text-gray-700 fw-semibold fs-6">Ahmet Yavuz</div>
+																	<!--end::Description-->
+																	<!--begin::Link-->
+																	<div class="text-gray-500 fw-semibold fs-7">Bulut</div>
+																	<!--end::Link-->
+																</div>
+																<!--end::Info-->
+								
+															</div>
+															<!--end::Wrapper-->
+														</div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_9">
+                                                            <div class="d-flex align-items-center mb-6">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div></div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_10">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+														<!--begin::Tap pane-->
+														<div class="tab-pane fade border-top pt-5" id="kt_timeline_widget_3_tab_content_11">
+                                                            <h5 >Randevunuz bulunmamaktadır.</h5>
+                                                    </div>
+														<!--end::Tap pane-->
+													</div>
+													<!--end::Tab Content-->
+													<!--begin::Action-->
+													<div class="float-end d-none">
+														<a href="#" class="btn btn-sm btn-light me-2" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Add Lesson</a>
+														<a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Call Sick for Today</a>
+													</div>
+													<!--end::Action-->
+												</div>
+												<!--end: Card Body-->
+											</div>
+											<!--end::Timeline widget 3-->
+                                            <div class="card h-md-100 mt-5">
+												<!--begin::Header-->
+												<div class="card-header border-0 pt-5">
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold text-gray-900">Veteriner Randevunuzu Puanlayın</span>
+													</h3>
+                                                    
+												</div>
+												<!--end::Header-->
+												<!--begin::Body-->
+												<div class="card-body">
+                                                
+
+                                                    <div data-kt-element="bullet" class="bullet bullet-vertical d-flex flex-stack position-relative min-h-70px mh-100 me-4 bg-success">
+                                                        <div  class=" d-flex  flex-grow-1">
+                                                        <span class=" pl-3 card-label fw-bold text-gray-800">03.04.2024</span> 
+                                                        <span class=" pl-3 card-label fw-bold text-gray-700">Patron (Kedi)</span>
+                                                        <div class=" pl-3 card-label fw-bold text-gray-600">Sezai Yıldırım (Muayene)</div>       
+                                                        </div>
+                                                  
+																
+                                                    
+                                                        <div class="star-rating d-flex  flex-row-reverse ml-5 ">
+                                                            <input type="radio" id="star5" name="rating" value="5" onchange="submitForm()"/>
+                                                            <label for="star5" title="5 yıldız"><i class="fas fa-star"></i></label>
+                                                            <input type="radio" id="star4" name="rating" value="4" onchange="submitForm()"/>
+                                                            <label for="star4" title="4 yıldız"><i class="fas fa-star"></i></label>
+                                                            <input type="radio" id="star3" name="rating" value="3" onchange="submitForm()"/>
+                                                            <label for="star3" title="3 yıldız"><i class="fas fa-star"></i></label>
+                                                            <input type="radio" id="star2" name="rating" value="2" onchange="submitForm()"/>
+                                                            <label for="star2" title="2 yıldız"><i class="fas fa-star"></i></label>
+                                                            <input type="radio" id="star1" name="rating" value="1" onchange="submitForm()"/>
+                                                            <label for="star1" title="1 yıldız"><i class="fas fa-star"></i></label>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                
+                                    
+                                            </div></div>
+                                        
+                                           
+                        </div>
+                      </div>                                   
+                    </div>
+                  </div>
+                </div>
+                <div id="kt_app_footer" class="app-footer">
+                  <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+                    <div class="text-gray-900 order-2 order-md-1">
+                      <span class="text-muted fw-semibold me-1">2024 &copy;</span>
+                      <a href="#" class="text-gray-800 text-hover-primary">e-PET</a>
+                    </div>
+                    <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                      <li class="menu-item">
+                      </li>									
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+			<!--end::Page-->
+		</div>
+    
+		<!--end::App-->
+			
+		<!--begin::Javascript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>var hostUrl = "assets/";</script> 
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+		<script src="assets/js/scripts.bundle.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script>
+      new DataTable('#example', {
+          scrollX: true,
+          scrollY: '10vh',
+          paging: false,
+          searching: false,
+          info: false
+      });
+      new DataTable('#example2', {
+          scrollX: true,
+          scrollY: '20vh',
+          paging: false,
+          info: false,
+          searching: false,
+      });
+    </script>
+    <script>
+      function format(d) {
+          return (
+              '<dl>' +
+              '<dt>Full name:</dt>' +
+              '<dd>' +
+              d.name +
+              '</dd>' +
+              '<dt>Extension number:</dt>' +
+              '<dd>' +
+              d.extn +
+              '</dd>' +
+              '<dt>Extra info:</dt>' +
+              '<dd>And any further details here (images etc)...</dd>' +
+              '</dl>'
+          );
+      }
+
+      let table = new DataTable('#example3', {
+          scrollX: true,
+          scrollY: '47vh',
+          paging: false,
+          info: false,
+          searching: false,
+          language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+            },
+          columns: [
+              {
+                  className: 'dt-control',
+                  orderable: false,
+                  data: null,
+                  defaultContent: ''
+              },
+              { data: 'name' },
+              { data: 'position' },
+              { data: 'office' },
+              { data: 'salary' }
+          ],
+          order: [[1, 'asc']]
+      });
+
+      table.on('click', 'td.dt-control', function (e) {
+          let tr = e.target.closest('tr');
+          let row = table.row(tr);
+      
+          if (row.child.isShown()) {
+              // This row is already open - close it
+              row.child.hide();
+          } else {
+              // Open this row
+              row.child(format(row.data())).show();
+          }
+      });
+    </script>
+    <script>
+  new DataTable('#example4', {
+          scrollX: true,
+          scrollY: '40vh',
+          paging: false,
+          searching: false,
+          info: false
+      });
+    </script>
+
+   
+        
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
