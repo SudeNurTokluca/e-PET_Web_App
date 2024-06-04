@@ -3,7 +3,7 @@ const sql = require('../sql');
 const exp = require('../exp');
 
 // GET
-function getPetOwners(req, res) {
+function getPetOwners(_, res) {
   sql`
     SELECT * FROM hayvansahibi 
     AS hs 
@@ -13,8 +13,26 @@ function getPetOwners(req, res) {
     .catch(err => {
       console.log(err);
 
-      exp.InternalServerError(err);
+      exp.InternalServerError(res);
     });
 }
 
-module.exports = { getPetOwners };
+function getPetOwnerById(req, res) {
+  const petOwnerId = req.params.id;
+
+  sql`
+    SELECT * FROM hayvansahibi
+    AS hs
+    WHERE hs.hayvansahibiid = ${petOwnerId};
+    `
+    .then(petOwner => {
+      petOwner.length > 0 ? res.status(200).json(petOwner) : exp.NotFound(res);
+    })
+    .catch(err => {
+      console.log(err);
+
+      exp.InternalServerError(res);
+    });
+}
+
+module.exports = { getPetOwners, getPetOwnerById };
