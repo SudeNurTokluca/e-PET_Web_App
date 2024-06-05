@@ -24,9 +24,26 @@ function Conflict(res) {
   });
 }
 
+function Unauthorized(
+  res,
+  message = 'You cannot access to this resource without logging in'
+) {
+  res.status(401).json({
+    error: `Unauthorized: ${message}`,
+  });
+}
+
+function Forbidden(res) {
+  res.status(403).json({
+    error: 'Forbidden request',
+  });
+}
+
 module.exports = {
   InternalServerError,
   NotFound,
   BadRequest,
   Conflict,
+  Unauthorized,
+  Forbidden,
 };
