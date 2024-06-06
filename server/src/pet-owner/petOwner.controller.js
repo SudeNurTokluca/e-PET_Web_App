@@ -38,7 +38,6 @@ function getPetOwnerById(req, res) {
     });
 }
 
-// POST
 /*
   {
     "email": 
@@ -53,11 +52,8 @@ function getPetOwnerCredentials(req, res) {
   WHERE hs.hayvansahibimail = ${email};
   `
     .then(credentials => {
-      credentials.length > 0
-        ? res.status(200).json(credentials)
-        : exceptions.NotFound(res);
-
-      return credentials;
+      if (credentials.length > 0) return credentials;
+      else throw new Error('Credentials not found');
     })
     .catch(err => {
       console.log(err);

@@ -4,6 +4,11 @@ const { getPetOwnerCredentials } = require('../pet-owner/petOwner.controller');
 
 const bcrypt = require('bcrypt');
 
+const isAuthenticated = (req, res, next) => {
+  if (req.session.user) next();
+  else exceptions.Unauthorized(res);
+};
+
 function register(req, res) {
   throw new Error('Not implemented yet');
 }
@@ -24,26 +29,30 @@ function login(req, res) {
     return;
   }
 
-  getCredentialsByUserType(req, res).then(credentials => {
-    if (credentials) {
-      const [hashedPassword] = credentials;
+  getCredentialsByUserType(req, res)
+    .then(credentials => {
+      const [credential] = credentials;
+      const hashedPassword = Object.values(credential)[0];
 
-      /* if (checkPassword(password, hashedPassword)) {
-        req.session.user = email;
-        res.status(200).json({ message: 'Login successful' });
-      } else {
-        exceptions.Unauthorized(res);
-      } */
-
-      req.session.user = email;
-      res.status(200).json({ message: 'Login successful' });
-    }
-  });
+      if (credentials) {
+        if (password === hashedPassword) {
+          req.session.user = String(email);
+          res.status(200).json({ message: 'Successfully logged in' });
+        } else {
+          exceptions.Unauthorized(res);
+        }
+      } else exceptions.Unauthorized(res);
+    })
+    .catch(err => {
+      console.log(err);
+      exceptions.InternalServerError(res);
+    });
 }
 
 module.exports = {
   register,
   login,
+  isAuthenticated,
 };
 
 function getCredentialsByUserType(req, res) {
@@ -69,8 +78,4 @@ function getCredentialsByUserType(req, res) {
       // FIXME: Implement this
       break;
   }
-}
-
-function checkPassword(plainTextPassword, hashedPassword) {
-  return bcrypt.compareSync(plainTextPassword, hashedPassword);
 }
