@@ -53,7 +53,9 @@ function getPetOwnerCredentials(req, res) {
   `
     .then(credentials => {
       if (credentials.length > 0) return credentials;
-      else throw new Error('Credentials not found');
+      else exceptions.NotFound(res);
+
+      throw new Error('Credentials not found');
     })
     .catch(err => {
       console.log(err);
