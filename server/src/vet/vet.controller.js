@@ -2,13 +2,13 @@ const sql = require('../sql');
 const exceptions = require('../exceptions');
 
 // GET
-function getPetOwners(_, res) {
+function getVets(req, res) {
   sql`
-    SELECT * FROM hayvansahibi 
-    AS hs 
-    ORDER BY hs.hayvansahibiid;
+    SELECT * FROM veteriner
+    AS v
+    ORDER BY v.veterinerid;
     `
-    .then(petOwners => res.status(200).json(petOwners))
+    .then(vets => res.status(200).json(vets))
     .catch(err => {
       console.log(err);
 
@@ -17,18 +17,16 @@ function getPetOwners(_, res) {
 }
 
 // GET
-function getPetOwnerById(req, res) {
-  const petOwnerId = req.params.id;
+function getVetById(req, res) {
+  const vetId = req.params.id;
 
   sql`
-    SELECT * FROM hayvansahibi
-    AS hs
-    WHERE hs.hayvansahibiid = ${petOwnerId};
+    SELECT * FROM veteriner
+    AS v
+    WHERE v.veterinerid = ${vetId};
     `
-    .then(petOwner => {
-      petOwner.length > 0
-        ? res.status(200).json(petOwner)
-        : exceptions.NotFound(res);
+    .then(vet => {
+      vet.length > 0 ? res.status(200).json(vet) : exceptions.NotFound(res);
     })
     .catch(err => {
       console.log(err);
@@ -43,14 +41,14 @@ function getPetOwnerById(req, res) {
     "email": 
   }
 */
-function getPetOwnerCredentials(req, res, userType) {
+function getVetCredentials(req, res, userType) {
   const { email } = req.body;
 
   return sql`
-  SELECT hs.hayvansahibisifre 
-  FROM hayvansahibi AS hs
-  WHERE hs.hayvansahibimail = ${email};
-  `
+    SELECT v.veterinersifre 
+    FROM veteriner AS v
+    WHERE v.veterinermail = ${email};
+    `
     .then(credentials => {
       if (credentials.length > 0) return [credentials, userType];
       else exceptions.NotFound(res);
@@ -65,7 +63,7 @@ function getPetOwnerCredentials(req, res, userType) {
 }
 
 module.exports = {
-  getPetOwners,
-  getPetOwnerById,
-  getPetOwnerCredentials,
+  getVets,
+  getVetById,
+  getVetCredentials,
 };

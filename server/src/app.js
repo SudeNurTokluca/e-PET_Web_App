@@ -2,7 +2,9 @@ const sql = require('./sql');
 const exceptions = require('./exceptions');
 const authRouter = require('./auth/auth.routes');
 const petOwnerRouter = require('./pet-owner/petOwner.routes');
-const { isAuthenticated } = require('./auth/auth.controller');
+const vetRouter = require('./vet/vet.routes');
+const { isAuthenticatedPetOwner } = require('./auth/auth.controller');
+const { isAuthenticatedVet } = require('./auth/auth.controller');
 
 const express = require('express');
 const session = require('express-session');
@@ -25,13 +27,9 @@ app.use(express.json());
 app.use((req, res, next) => log(req, res, next));
 
 app.use('/auth', authRouter);
-app.use('/pet-owners', isAuthenticated, petOwnerRouter);
-app.use('/pets', isAuthenticated, () => new Error('Not implemented yet'));
-app.use(
-  '/veterinarians',
-  isAuthenticated,
-  () => new Error('Not implemented yet')
-);
+app.use('/pet-owners', isAuthenticatedPetOwner, petOwnerRouter);
+app.use('/vets', isAuthenticatedVet, vetRouter);
+app.use('/pets', /* isAuthenticated, */ () => new Error('Not implemented yet'));
 
 app.get('/', (req, res) => getDefault(req, res));
 
