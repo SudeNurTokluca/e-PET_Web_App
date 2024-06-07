@@ -1,6 +1,8 @@
 const sql = require('../sql');
 const exceptions = require('../exceptions');
 
+const bcrypt = require('bcrypt');
+
 // GET
 function getVets(req, res) {
   sql`
@@ -29,6 +31,90 @@ function getVetById(req, res) {
       vet.length > 0 ? res.status(200).json(vet) : exceptions.NotFound(res);
     })
     .catch(err => {
+      console.log(err);
+
+      exceptions.InternalServerError(res);
+    });
+}
+
+// POST
+/* expected-body: 
+  {
+    "name": "John",
+    "surname": "Doe",
+    "TCKN": "12345678901",
+    "phone": "+905555555555",
+    "email": "john.doe@example.com",
+    "password": "password",
+    "diplomaNumber": "123456",
+    "clinicId": 1,
+    "openingHours": "09:00",
+    "closingHours": "18:00",
+
+  }
+*/
+function addVet(req, res) {
+  const {
+    name,
+    surname,
+    TCKN,
+    phone,
+    email,
+    password,
+    diplomaNumber,
+    clinicId,
+    openingHours,
+    closingHours,
+  } = req.body;
+
+  if (
+    !name ||
+    !surname ||
+    !TCKN ||
+    !phone ||
+    !email ||
+    !password ||
+    !diplomaNumber ||
+    !clinicId ||
+    !openingHours ||
+    !closingHours
+  ) {
+    return exceptions.BadRequest(res);
+  }
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  return sql`
+  INSERT INTO veteriner
+  (
+    veterineradi,
+    veterinersoyadi,
+    veterinertc,
+    veterinertelefon,
+    veterinermail,
+    veterinersifre,
+    veterinerdiplomano,
+    klinikid,
+    veterinercalismasaatbas,
+    veterinercalismasaatson
+  )
+  VALUES
+  (
+    ${name},
+    ${surname},
+    ${TCKN},
+    ${phone},
+    ${email},
+    ${hashedPassword},
+    ${diplomaNumber},
+    ${clinicId},
+    ${openingHours},
+    ${closingHours}
+  );`
+    .then(() => res.status(201).json({ message: 'Vet added successfully' }))
+    .catch(err => {
+      if (err.code === '23505') return exceptions.Conflict(res);
+
       console.log(err);
 
       exceptions.InternalServerError(res);
@@ -66,4 +152,5 @@ module.exports = {
   getVets,
   getVetById,
   _getVetCredentials,
+  addVet,
 };
