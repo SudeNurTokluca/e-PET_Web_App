@@ -41,7 +41,7 @@ function getVetById(req, res) {
     "email": 
   }
 */
-function getVetCredentials(req, res, userType) {
+function _getVetCredentials(req, res, userType) {
   const { email } = req.body;
 
   return sql`
@@ -65,5 +65,5 @@ function getVetCredentials(req, res, userType) {
 module.exports = {
   getVets,
   getVetById,
-  getVetCredentials,
+  _getVetCredentials,
 };

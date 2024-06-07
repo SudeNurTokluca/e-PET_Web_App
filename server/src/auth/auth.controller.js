@@ -1,7 +1,7 @@
 const sql = require('../sql');
 const exceptions = require('../exceptions');
-const { getPetOwnerCredentials } = require('../pet-owner/petOwner.controller');
-const { getVetCredentials } = require('../vet/vet.controller');
+const { _getPetOwnerCredentials } = require('../pet-owner/petOwner.controller');
+const { _getVetCredentials } = require('../vet/vet.controller');
 
 const bcrypt = require('bcrypt');
 
@@ -65,10 +65,10 @@ function getCredentialsByUserType(req, res) {
 
   switch (userType) {
     case 'pet-owner':
-      return getPetOwnerCredentials(req, res, userType);
+      return _getPetOwnerCredentials(req, res, userType);
       break;
     case 'veterinarian':
-      return getVetCredentials(req, res, userType);
+      return _getVetCredentials(req, res, userType);
       break;
     case 'admin':
       /* FIXME */ throw new Error('Not implemented yet');

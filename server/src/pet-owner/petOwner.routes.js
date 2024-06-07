@@ -4,10 +4,11 @@ const router = express.Router();
 const {
   getPetOwners,
   getPetOwnerById,
-  getPetOwnerCredentials,
+  addPetOwner,
 } = require('./petOwner.controller');
 
 router.get('/', getPetOwners);
 router.get('/:id', getPetOwnerById);
+router.post('/', addPetOwner);
 
 module.exports = router;
