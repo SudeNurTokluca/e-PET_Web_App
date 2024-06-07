@@ -9,6 +9,13 @@ const { isAuthenticatedVet } = require('./auth/auth.controller');
 const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto');
+const cors = require('cors');
+
+const corsPolicy = {
+  origin: `http://localhost:${process.env.F_PORT}`,
+  allowedHeaders: 'Content-Type,Authorization',
+  optionsSuccessStatus: 204,
+};
 
 const app = express();
 const sessionSecret = crypto.randomBytes(32).toString('hex');
@@ -25,10 +32,14 @@ app.use(
 );
 app.use(express.json());
 app.use((req, res, next) => log(req, res, next));
+app.use(cors(corsPolicy));
 
 app.use('/auth', authRouter);
+
 app.use('/pet-owners', isAuthenticatedPetOwner, petOwnerRouter);
+
 app.use('/vets', isAuthenticatedVet, vetRouter);
+
 app.use('/pets', /* isAuthenticated, */ () => new Error('Not implemented yet'));
 
 app.get('/', (req, res) => getDefault(req, res));

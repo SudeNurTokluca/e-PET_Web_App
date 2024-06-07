@@ -71,7 +71,7 @@ function getCredentialsByUserType(req, res) {
       return getVetCredentials(req, res, userType);
       break;
     case 'admin':
-      // FIXME: Implement this
+      /* FIXME */ throw new Error('Not implemented yet');
       break;
   }
 }
