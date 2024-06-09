@@ -1,12 +1,43 @@
 const sql = require('../sql');
 const exceptions = require('../exceptions');
-const { _getPetOwnerCredentials } = require('../pet-owner/petOwner.controller');
-const { _getVetCredentials } = require('../vet/vet.controller');
+
+const {
+  _getPetOwnerCredentials,
+  _addPetOwner,
+} = require('../pet-owner/petOwner.controller');
+const { _getVetCredentials, _addVet } = require('../vet/vet.controller');
 
 const bcrypt = require('bcrypt');
 
+// POST
+/* expected-body:
+  {
+    "userType": "pet-owner" "veterinarian" "admin"
+  }
+*/
 function register(req, res) {
-  throw new Error('Not implemented yet');
+  const { userType } = req.body;
+
+  if (
+    userType !== 'pet-owner' &&
+    userType !== 'veterinarian' &&
+    userType !== 'admin'
+  ) {
+    exceptions.BadRequest(res);
+    return;
+  }
+
+  switch (userType) {
+    case 'pet-owner':
+      return _addPetOwner(req, res);
+      break;
+    case 'veterinarian':
+      return _addVet(req, res);
+      break;
+    case 'admin':
+      /* FIXME */ throw new Error('Not implemented yet');
+      break;
+  }
 }
 
 // POST

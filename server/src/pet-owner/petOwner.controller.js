@@ -55,9 +55,10 @@ function getPetOwnerById(req, res) {
     }
   }
 */
-function addPetOwner(req, res) {
+function _addPetOwner(req, res) {
   const { name, surname, TCKN, phone, email, password, address } = req.body;
 
+  if (!address) exceptions.BadRequest(res);
   const { city, district, neighborhood } = address;
 
   if (
@@ -144,5 +145,5 @@ module.exports = {
   getPetOwners,
   getPetOwnerById,
   _getPetOwnerCredentials,
-  addPetOwner,
+  _addPetOwner,
 };

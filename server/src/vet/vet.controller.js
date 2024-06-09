@@ -53,7 +53,7 @@ function getVetById(req, res) {
 
   }
 */
-function addVet(req, res) {
+function _addVet(req, res) {
   const {
     name,
     surname,
@@ -152,5 +152,5 @@ module.exports = {
   getVets,
   getVetById,
   _getVetCredentials,
-  addVet,
+  _addVet,
 };
