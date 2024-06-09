@@ -90,9 +90,17 @@ function isAuthenticatedVet(req, res, next) {
   else exceptions.Unauthorized(res);
 }
 
+function isAuthenticated(req, res, next) {
+  const currentUser = req.session.user;
+
+  if (currentUser) next();
+  else exceptions.Unauthorized(res);
+}
+
 module.exports = {
   register,
   login,
   isAuthenticatedPetOwner,
   isAuthenticatedVet,
+  isAuthenticated,
 };

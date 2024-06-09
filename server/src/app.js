@@ -1,11 +1,17 @@
-const sql = require('./sql');
-const exceptions = require('./exceptions');
+// Routes
 const authRouter = require('./auth/auth.routes');
 const petOwnerRouter = require('./pet-owner/petOwner.routes');
 const vetRouter = require('./vet/vet.routes');
-const { isAuthenticatedPetOwner } = require('./auth/auth.controller');
-const { isAuthenticatedVet } = require('./auth/auth.controller');
+const clinicRouter = require('./clinic/clinic.routes');
 
+// Authentication
+const {
+  isAuthenticatedPetOwner,
+  isAuthenticatedVet,
+  isAuthenticated,
+} = require('./auth/auth.controller');
+
+// Dependencies
 const express = require('express');
 const session = require('express-session');
 const crypto = require('crypto');
@@ -41,6 +47,8 @@ app.use('/pet-owners', isAuthenticatedPetOwner, petOwnerRouter);
 app.use('/vets', isAuthenticatedVet, vetRouter);
 
 app.use('/pets', /* isAuthenticated, */ () => new Error('Not implemented yet'));
+
+app.use('/clinics', isAuthenticated, clinicRouter);
 
 app.get('/', (req, res) => getDefault(req, res));
 
