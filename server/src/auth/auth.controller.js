@@ -30,13 +30,12 @@ function register(req, res) {
   switch (userType) {
     case 'pet-owner':
       return _addPetOwner(req, res);
-      break;
+
     case 'veterinarian':
       return _addVet(req, res);
-      break;
+
     case 'admin':
       /* FIXME */ throw new Error('Not implemented yet');
-      break;
   }
 }
 
@@ -59,25 +58,32 @@ function login(req, res) {
   getCredentialsByUserType(req, res)
     .then(container => {
       // returned container: [credentials, userType]
+      if (!container || !container[0]) {
+        exceptions.NotFound(res);
+        return Promise.reject('No credentials found for given mail.');
+      }
 
       const [credential] = container[0];
       const hashedPassword = Object.values(credential)[0];
 
-      if (container) {
-        if (password === hashedPassword) {
-          req.session.user = {
-            who: email,
-            userType: container[1],
-          };
-          //console.log(req.session);
-          res.status(200).json({ message: 'Successfully logged in' });
-        } else {
-          exceptions.Unauthorized(res);
-        }
-      } else exceptions.Unauthorized(res);
+      if (bcrypt.compareSync(password, hashedPassword)) {
+        req.session.user = {
+          who: email,
+          userType: container[1],
+        };
+
+        //console.log(req.session);
+        res.status(200).json({ message: 'Successfully logged in' });
+      } else {
+        exceptions.NotFound(res);
+      }
     })
     .catch(err => {
       console.log(err);
+
+      if (err === 'No credentials found for given mail.') {
+        exceptions.NotFound(res);
+      }
       exceptions.InternalServerError(res);
     });
 }

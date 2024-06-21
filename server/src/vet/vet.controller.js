@@ -137,9 +137,10 @@ function _getVetCredentials(req, res, userType) {
     `
     .then(credentials => {
       if (credentials.length > 0) return [credentials, userType];
-      else exceptions.NotFound(res);
-
-      throw new Error('Credentials not found');
+      else {
+        exceptions.NotFound(res);
+        return;
+      }
     })
     .catch(err => {
       console.log(err);
