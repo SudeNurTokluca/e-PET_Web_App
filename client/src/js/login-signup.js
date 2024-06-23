@@ -29,6 +29,10 @@ btnLoginEl?.addEventListener('click', e => {
     inputPetOwnerPassword?.value || inputVetPassword?.value
   ).trim();
   const userType = (inputVetEmail ? 'veterinarian' : 'pet-owner').trim();
+  const mainPageUrl =
+    userType === 'veterinarian' ? 'Veteriner' : 'HayvanSahibi';
+
+  console.log(mainPageUrl);
 
   fetch('http://localhost:3000/auth/login', {
     method: 'POST',
@@ -46,8 +50,7 @@ btnLoginEl?.addEventListener('click', e => {
         response.json().then(data => {
           console.log(data);
 
-          // Redirect to Veteriner-anasayfa.html
-          window.location.href = 'Veteriner-anasayfa.html';
+          window.location.href = `${mainPageUrl}-anasayfa.html`;
         });
       } else {
         alert('Kullanıcı adı veya şifre hatalı!');
