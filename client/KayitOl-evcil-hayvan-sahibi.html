@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/login.css" />
 
-    <title>Evcil Hayvan Sahibi Giriş</title>
+    <title>Evcil Hayvan Sahibi Kayıt</title>
   </head>
   <body>
     <nav class="navbar bg--pet-owners">
@@ -48,23 +48,6 @@
           <div>
             <label
               class="login-container__form-label label--pet-owners"
-              htmlFor="email"
-            >
-              E-Mail
-            </label>
-            <input
-              class="login-container__form-input"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="E-mail adresiniz"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              class="login-container__form-label label--pet-owners"
               htmlFor="surname"
             >
               Soyad
@@ -75,6 +58,57 @@
               id="surname"
               name="surname"
               placeholder="Soyadınız"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--pet-owners"
+              htmlFor="tckn"
+            >
+              TC Kimlik Numarası
+            </label>
+            <input
+              class="login-container__form-input"
+              type="tckn"
+              id="tckn"
+              name="tckn"
+              placeholder="TC Kimlik Numaranız"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--pet-owners"
+              htmlFor="cellphone"
+            >
+              Telefon Numarası
+            </label>
+            <input
+              class="login-container__form-input"
+              type="cellphone"
+              id="cellphone"
+              name="cellphone"
+              placeholder="+905xxxxxxxxx"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              class="login-container__form-label label--pet-owners"
+              htmlFor="email"
+            >
+              E-Mail
+            </label>
+            <input
+              class="login-container__form-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail adresiniz"
               required
             />
           </div>
@@ -108,7 +142,7 @@
               type="address"
               id="address"
               name="address"
-              placeholder="Ev adresiniz"
+              placeholder="Şehir, ilçe, mahalle, sokak, kapı no..."
               required
             />
           </div>
@@ -122,27 +156,10 @@
             </label>
             <input
               class="login-container__form-input"
-              type="password-repeat"
+              type="password"
               id="password-repeat"
               name="password-repeat"
               placeholder="Şifrenizi tekrar giriniz"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              class="login-container__form-label label--pet-owners"
-              htmlFor="cellphone"
-            >
-              Telefon Numarası
-            </label>
-            <input
-              class="login-container__form-input"
-              type="cellphone"
-              id="cellphone"
-              name="cellphone"
-              placeholder="Başında sıfır olmadan giriniz"
               required
             />
           </div>
@@ -164,6 +181,6 @@
       </section>
     </main>
 
-    <script src="./src/js/login-signup.js"></script>
+    <script src="./src/js/signup.js"></script>
   </body>
 </html>
