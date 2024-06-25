@@ -19,8 +19,8 @@ const cors = require('cors');
 
 const corsPolicy = {
   origin: `http://localhost:${process.env.F_PORT}`,
-  allowedHeaders: 'Content-Type,Authorization',
-  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 };
 
 const app = express();
@@ -33,11 +33,17 @@ app.use(
     user: null,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
+    cookie: {
+      secure: false,
+      httpOnly: true,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      sameSite: 'lax',
+    },
   })
 );
 app.use(express.json());
 app.use((req, res, next) => log(req, res, next));
+
 app.use(cors(corsPolicy));
 
 app.use('/auth', authRouter);
@@ -66,7 +72,11 @@ function log(req, res, next) {
 }
 
 function getDefault(req, res) {
-  res.status(200).json({
-    info: 'The server is running...',
-  });
+  const body = {
+    status: 'The server is running...',
+  };
+
+  if (req.session.user) body.user = req.session.user;
+
+  res.status(200).json(body);
 }

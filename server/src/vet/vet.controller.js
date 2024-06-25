@@ -21,6 +21,7 @@ function getVets(req, res) {
 // GET
 function getVetById(req, res) {
   const vetId = req.params.id;
+  console.log(req.session.user.who);
 
   sql`
     SELECT * FROM veteriner

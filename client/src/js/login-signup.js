@@ -47,13 +47,22 @@ btnLoginEl?.addEventListener('click', e => {
   })
     .then(response => {
       if (response.ok) {
+        console.log(response);
         response.json().then(data => {
           console.log(data);
+
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('userType', userType);
+          localStorage.setItem('mainPageUrl', mainPageUrl);
 
           window.location.href = `${mainPageUrl}-anasayfa.html`;
         });
       } else {
         alert('Kullanıcı adı veya şifre hatalı!');
+
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userType');
+        localStorage.removeItem('mainPageUrl');
       }
     })
     .catch(error => {

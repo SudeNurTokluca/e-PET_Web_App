@@ -70,6 +70,8 @@ function login(req, res) {
           userType: container[1],
         };
 
+        console.log(req.session.user.who, 'logged in.');
+
         res.status(200).json({ message: 'Successfully logged in' });
       } else {
         exceptions.NotFound(res);
@@ -113,6 +115,18 @@ function getCredentialsByUserType(req, res) {
   }
 }
 
+function getAuthUser(req, res) {
+  const currentUser = req.session.user;
+
+  if (currentUser) {
+    console.log(currentUser.who, 'is authenticated.');
+    res.status(200).json(currentUser);
+  } else {
+    console.log('No user is authenticated.');
+    exceptions.NotFound(res);
+  }
+}
+
 function isAuthenticatedPetOwner(req, res, next) {
   const currentUser = req.session.user;
 
@@ -140,4 +154,5 @@ module.exports = {
   isAuthenticatedPetOwner,
   isAuthenticatedVet,
   isAuthenticated,
+  getAuthUser,
 };
