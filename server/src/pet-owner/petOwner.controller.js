@@ -39,6 +39,28 @@ function getPetOwnerById(req, res) {
     });
 }
 
+function getOwnedPets(req, res) {
+  const petOwnerMail = req.query.email;
+
+  if (!petOwnerMail) exceptions.BadRequest(res);
+
+  console.log(`\n\n${petOwnerMail} is requesting their pets.\n\n`);
+
+  sql`
+    SELECT e.hayvanadi FROM evcilhayvan AS e
+    INNER JOIN hayvansahibi AS h
+    ON h.hayvansahibiid = e.hayvansahibiid
+    WHERE h.hayvansahibimail = ${petOwnerMail}`
+    .then(pets => {
+      pets.length > 0 ? res.status(200).json(pets) : exceptions.NotFound(res);
+    })
+    .catch(err => {
+      console.log(err);
+
+      exceptions.InternalServerError(res);
+    });
+}
+
 // POST
 /* expected-body:
   {
@@ -123,6 +145,8 @@ function _addPetOwner(req, res) {
 function _getPetOwnerCredentials(req, res, userType) {
   const { email } = req.body;
 
+  if (!email) exceptions.BadRequest(res);
+
   return sql`
   SELECT hs.hayvansahibisifre 
   FROM hayvansahibi AS hs
@@ -144,6 +168,7 @@ function _getPetOwnerCredentials(req, res, userType) {
 module.exports = {
   getPetOwners,
   getPetOwnerById,
+  getOwnedPets,
   _getPetOwnerCredentials,
   _addPetOwner,
 };

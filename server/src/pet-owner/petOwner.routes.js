@@ -3,8 +3,18 @@ const router = express.Router();
 
 // route: /pet-owners
 
-const { getPetOwners, getPetOwnerById } = require('./petOwner.controller');
+const {
+  getPetOwners,
+  getPetOwnerById,
+  getOwnedPets,
+} = require('./petOwner.controller');
 
-router.get('/', getPetOwners);
+router.get('/', (req, res) => {
+  if (req.query.email) {
+    return getOwnedPets(req, res);
+  }
+  return getPetOwners(req, res);
+});
+
 router.get('/:id', getPetOwnerById);
 module.exports = router;

@@ -476,14 +476,10 @@
                             <div class="card-body">
                               <label class="mb-2">Evcil Hayvan Seç:</label>
                               <select
-                                class="form-select"
+                                class="form-select pets-select"
                                 data-control="select2"
                                 data-placeholder="Lütfen Seçiniz"
-                              >
-                                <option></option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                              </select>
+                              ></select>
                               <div class="d-flex justify-content-center">
                                 <a
                                   href="#"
@@ -991,6 +987,30 @@
         searching: false,
         info: false,
       });
+    </script>
+    <script>
+      async function getPetNames() {
+        const options = document.querySelectorAll('.pets-select > *');
+
+        const res = await fetch(
+          `http://localhost:3000/pet-owners?email=${localStorage.getItem(
+            'userMail'
+          )}`
+        );
+        const data = await res.json();
+
+        data.forEach(({ hayvanadi: pet }, i) => {
+          const option = document.createElement('option');
+          option.value = i;
+          option.innerText = pet;
+
+          document
+            .querySelector('.pets-select')
+            .insertAdjacentElement('beforeend', option);
+        });
+      }
+
+      getPetNames();
     </script>
     <!--end::Javascript-->
   </body>
