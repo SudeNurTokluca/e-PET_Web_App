@@ -53,7 +53,7 @@ btnLoginEl?.addEventListener('click', e => {
 
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userType', userType);
-          localStorage.setItem('mainPageUrl', mainPageUrl);
+          localStorage.setItem('userMail', email);
 
           window.location.href = `${mainPageUrl}-anasayfa.html`;
         });
