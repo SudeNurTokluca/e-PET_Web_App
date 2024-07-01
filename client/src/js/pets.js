@@ -12,7 +12,10 @@ const selectGender = document.getElementById('gender');
 
 const selectEl = document.querySelector('.pets-select');
 
-selectEl.addEventListener('change', e => handleSelect(e));
+selectEl.addEventListener('change', e => {
+  handleSelect(e);
+  fetchDoneVaxinations(selectEl.options[selectEl.selectedIndex].innerText);
+});
 
 async function getPetNames() {
   try {
@@ -86,4 +89,65 @@ btnReset.addEventListener('click', () => {
   inputHeight.value = '';
   inputWeight.value = '';
   selectGender.selectedIndex = 0;
+});
+
+// Yapılan aşı bilgileri datatable kısmı
+async function fetchDoneVaxinations(name) {
+  try {
+    const res = await fetch(`http://localhost:3000/pets?name=${name}`);
+    const data = await res.json();
+
+    if (res.status === 404) {
+      // destroy datatable if no data is found
+      $('#example2').DataTable().clear().destroy();
+      // delete the data as well
+
+      return;
+    }
+
+    data.map(
+      info => (info.date = new Date(info.date).toISOString().split('T')[0])
+    );
+
+    // check if datatable is already initialized
+    if ($.fn.DataTable.isDataTable('#example2')) {
+      $('#example2').DataTable().destroy();
+    }
+    if ($.fn.DataTable.isDataTable('#example')) {
+      $('#example').DataTable().destroy();
+    }
+
+    const exampleData = data.filter(
+      item => item.date > new Date().toISOString().split('T')[0]
+    );
+    const exampleData2 = data.filter(
+      item => item.date <= new Date().toISOString().split('T')[0]
+    );
+
+    $('#example').DataTable({
+      data: exampleData,
+      columns: [{ data: 'vax' }, { data: 'vet' }, { data: 'date' }],
+    });
+    $('#example2').DataTable({
+      data: exampleData2,
+      columns: [{ data: 'vax' }, { data: 'vet' }, { data: 'date' }],
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const vaxTab = document.querySelector('.vax-done-info');
+vaxTab.addEventListener('click', function () {
+  fetchDoneVaxinations(inputName.value);
+});
+
+const navTabs = document.querySelector('.nav-tabs');
+navTabs.addEventListener('click', function (e) {
+  if (
+    e.target.classList.contains('nav-link') &&
+    !e.target.classList.contains('vax-done-info')
+  ) {
+    $('#example2').DataTable().destroy();
+  }
 });
