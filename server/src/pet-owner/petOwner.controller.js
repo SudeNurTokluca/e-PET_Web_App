@@ -39,15 +39,15 @@ function getPetOwnerById(req, res) {
     });
 }
 
+// GET
 function getOwnedPets(req, res) {
   const petOwnerMail = req.query.email;
 
   if (!petOwnerMail) exceptions.BadRequest(res);
 
-  console.log(`\n\n${petOwnerMail} is requesting their pets.\n\n`);
-
   sql`
-    SELECT e.hayvanadi FROM evcilhayvan AS e
+    SELECT e.hayvanid, e.hayvanadi
+    FROM evcilhayvan AS e
     INNER JOIN hayvansahibi AS h
     ON h.hayvansahibiid = e.hayvansahibiid
     WHERE h.hayvansahibimail = ${petOwnerMail}`

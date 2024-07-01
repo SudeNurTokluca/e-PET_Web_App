@@ -3,6 +3,7 @@ const authRouter = require('./auth/auth.routes');
 const petOwnerRouter = require('./pet-owner/petOwner.routes');
 const vetRouter = require('./vet/vet.routes');
 const clinicRouter = require('./clinic/clinic.routes');
+const petRouter = require('./pet/pet.routes');
 
 // Authentication
 const {
@@ -48,11 +49,11 @@ app.use(cors(corsPolicy));
 
 app.use('/auth', authRouter);
 
-app.use('/pet-owners', isAuthenticatedPetOwner, petOwnerRouter);
+app.use('/pet-owners', /* isAuthenticatedPetOwner, */ petOwnerRouter);
 
 app.use('/vets', isAuthenticatedVet, vetRouter);
 
-app.use('/pets', /* isAuthenticated, */ () => new Error('Not implemented yet'));
+app.use('/pets', /* isAuthenticated, */ petRouter);
 
 app.use('/clinics', isAuthenticated, clinicRouter);
 

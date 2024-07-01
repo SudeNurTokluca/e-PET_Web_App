@@ -40,6 +40,7 @@
       }
     </style>
     <script defer src="./src/js/restrict.js"></script>
+    <script defer src="./src/js/pets.js"></script>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -477,15 +478,17 @@
                               <label class="mb-2">Evcil Hayvan Seç:</label>
                               <select
                                 class="form-select pets-select"
-                                data-control="select2"
                                 data-placeholder="Lütfen Seçiniz"
                               ></select>
                               <div class="d-flex justify-content-center">
                                 <a
                                   href="#"
                                   class="btn btn-sm btn-light-success font-weight-bold mt-2"
-                                  ><i class="bi bi-plus-lg"></i>Yeni Hayvan
-                                  Ekle</a
+                                  ><i
+                                    class="bi bi-plus-lg resetIcon"
+                                    type="button"
+                                  ></i
+                                  >Yeni Hayvan Ekle</a
                                 >
                               </div>
                             </div>
@@ -545,6 +548,8 @@
                                         >
                                         <input
                                           type="text"
+                                          id="petName"
+                                          name="petName"
                                           class="form-control"
                                           placeholder="Adı"
                                         />
@@ -555,6 +560,8 @@
                                         >
                                         <input
                                           type="text"
+                                          id="chipNumber"
+                                          name="chipNumber"
                                           class="form-control"
                                           placeholder="Çip Numarası"
                                         />
@@ -562,9 +569,10 @@
                                       <div class="my-3">
                                         <label class="mb-2">Doğum Tarihi</label>
                                         <input
-                                          id="startDate"
+                                          id="birthDate"
                                           class="form-control"
-                                          type="date"
+                                          type="text"
+                                          name="birthDate"
                                         />
                                       </div>
                                     </div>
@@ -573,7 +581,7 @@
                                         <label class="mb-2"
                                           >Evcil Hayvan Türü</label
                                         >
-                                        <select
+                                        <!-- <select
                                           class="form-select"
                                           data-control="select2"
                                           data-placeholder="Lütfen Seçiniz"
@@ -581,7 +589,14 @@
                                           <option></option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
-                                        </select>
+                                        </select> -->
+                                        <input
+                                          id="petType"
+                                          class="form-control"
+                                          type="text"
+                                          name="petType"
+                                          placeholder="Türü"
+                                        />
                                       </div>
                                       <div class="my-3">
                                         <label class="mb-2">Cinsiyet</label>
@@ -589,10 +604,11 @@
                                           class="form-select"
                                           data-control="select2"
                                           data-placeholder="Lütfen Seçiniz"
+                                          id="gender"
                                         >
                                           <option></option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
+                                          <option value="1">Dişi</option>
+                                          <option value="2">Erkek</option>
                                         </select>
                                       </div>
                                       <div class="my-3">
@@ -602,6 +618,7 @@
                                             <div class="input-group">
                                               <input
                                                 type="text"
+                                                id="height"
                                                 class="form-control"
                                                 placeholder="Boy"
                                                 aria-describedby="basic-addon2"
@@ -618,6 +635,7 @@
                                             <div class="input-group">
                                               <input
                                                 type="text"
+                                                id="weight"
                                                 class="form-control"
                                                 placeholder="Ağırlık"
                                                 aria-describedby="basic-addon2"
@@ -674,12 +692,12 @@
                                       </thead>
                                       <tbody>
                                         <tr>
-                                          <td>Parazit</td>
-                                          <td>06.05.2024</td>
+                                          <td>İç Parazit</td>
+                                          <td>08.08.2024</td>
                                         </tr>
                                         <tr>
-                                          <td>Parazit</td>
-                                          <td>06.05.2024</td>
+                                          <td>Dış Parazit</td>
+                                          <td>15.07.2024</td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -945,6 +963,7 @@
 
     <!--begin::Javascript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <script>
       var hostUrl = 'assets/';
     </script>
@@ -987,30 +1006,6 @@
         searching: false,
         info: false,
       });
-    </script>
-    <script>
-      async function getPetNames() {
-        const options = document.querySelectorAll('.pets-select > *');
-
-        const res = await fetch(
-          `http://localhost:3000/pet-owners?email=${localStorage.getItem(
-            'userMail'
-          )}`
-        );
-        const data = await res.json();
-
-        data.forEach(({ hayvanadi: pet }, i) => {
-          const option = document.createElement('option');
-          option.value = i;
-          option.innerText = pet;
-
-          document
-            .querySelector('.pets-select')
-            .insertAdjacentElement('beforeend', option);
-        });
-      }
-
-      getPetNames();
     </script>
     <!--end::Javascript-->
   </body>
