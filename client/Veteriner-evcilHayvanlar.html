@@ -41,6 +41,7 @@
       }
     </style>
     <script defer src="./src/js/restrict.js"></script>
+    <script defer src="./src/js/veteriner-evcilHayvanlar.js"></script>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -447,21 +448,26 @@
                 >
                   <div class="card card-content" style="height: 80vh">
                     <div class="card-body">
-                      <div class="d-flex justify-content-center mb-8">
+                      <form
+                        class="d-flex justify-content-center mb-8 form-search"
+                      >
                         <div class="form-group row w-50">
                           <label class="col-5 col-md-3 col-form-label text-end"
                             >Çip Numarası</label
                           >
                           <div class="col-5">
-                            <input class="form-control" type="text" />
+                            <input
+                              class="form-control search-input"
+                              type="text"
+                            />
                           </div>
                           <div class="col-2 col-md-4">
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary">
                               <i class="bi bi-search"></i>
                             </button>
                           </div>
                         </div>
-                      </div>
+                      </form>
 
                       <ul
                         class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6"
@@ -512,7 +518,7 @@
                                 <label class="mb-2">Evcil Hayvan Adı</label>
                                 <input
                                   type="text"
-                                  class="form-control"
+                                  class="form-control inputName"
                                   placeholder="Adı"
                                   readonly
                                 />
@@ -521,7 +527,7 @@
                                 <label class="mb-2">Evcil Hayvan Çip No</label>
                                 <input
                                   type="text"
-                                  class="form-control"
+                                  class="form-control inputChipNo"
                                   placeholder="Çip Numarası"
                                   readonly
                                 />
@@ -530,7 +536,7 @@
                                 <label class="mb-2">Doğum Tarihi</label>
                                 <input
                                   id="startDate"
-                                  class="form-control"
+                                  class="form-control inputDate"
                                   type="date"
                                   readonly
                                 />
@@ -541,7 +547,7 @@
                                 <label class="mb-2">Evcil Hayvan Türü</label>
                                 <input
                                   type="text"
-                                  class="form-control"
+                                  class="form-control inputType"
                                   placeholder="Türü"
                                   readonly
                                 />
@@ -550,7 +556,7 @@
                                 <label class="mb-2">Cinsiyet</label>
                                 <input
                                   type="text"
-                                  class="form-control"
+                                  class="form-control inputGender"
                                   placeholder="Cinsiyeti"
                                   readonly
                                 />
@@ -562,7 +568,7 @@
                                     <div class="input-group">
                                       <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control inputHeight"
                                         placeholder="Boy"
                                         aria-describedby="basic-addon2"
                                         readonly
@@ -577,7 +583,7 @@
                                     <div class="input-group">
                                       <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control inputWeight"
                                         placeholder="Ağırlık"
                                         aria-describedby="basic-addon2"
                                         readonly
@@ -628,73 +634,6 @@
                                 <th>Tarih</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>Parazit</td>
-                                <td>X Veteriner</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                            </tbody>
                           </table>
                         </div>
                         <div
@@ -728,86 +667,12 @@
                           >
                             <thead>
                               <tr>
-                                <th>Reçete ID</th>
+                                <th>Reçete Tipi</th>
                                 <th>Veteriner</th>
-                                <th>Teşhis</th>
-                                <th>Tarih</th>
+                                <th>İlaç</th>
+                                <th>Son Uygulama Tarihi</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                            </tbody>
                           </table>
                         </div>
                         <div
@@ -847,80 +712,6 @@
                                 <th>Tarih</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                              <tr>
-                                <td>000001</td>
-                                <td>X Veteriner</td>
-                                <td>Mantar</td>
-                                <td>24.05.2024</td>
-                              </tr>
-                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -1110,40 +901,6 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
-    <script>
-      new DataTable('#example', {
-        scrollX: true,
-        scrollY: 300,
-        paging: false,
-        searching: false,
-        language: {
-          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json',
-        },
-      });
-    </script>
-    <script>
-      new DataTable('#example2', {
-        scrollX: true,
-        scrollY: 300,
-        paging: false,
-        searching: false,
-        language: {
-          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json',
-        },
-      });
-    </script>
-    <script>
-      new DataTable('#example3', {
-        scrollX: true,
-        scrollY: 300,
-        paging: false,
-        searching: false,
-        language: {
-          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json',
-        },
-      });
-    </script>
-
     <!--end::Javascript-->
   </body>
   <!--end::Body-->

@@ -132,8 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
       {
         label: 'Ziyaret Sayısı',
         data: [30, 25, 40, 45, 35, 50, 60, 55, 65, 70, 60, 75],
-        borderColor: 'rgba(38, 80, 115, 1)',
-        backgroundColor: 'rgba(38, 80, 115, 0.2)',
+        borderColor: 'rgb(5, 110, 233)',
+        backgroundColor: 'rgba(5, 110, 233, 0.2)',
         fill: true,
         tension: 0.1,
       },
