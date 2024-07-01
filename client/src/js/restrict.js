@@ -1,13 +1,10 @@
 'use strict';
 
 const restrict = () => {
-  console.log(localStorage.getItem('userType'));
-  console.log(window.location.pathname);
   if (
     localStorage.getItem('isLoggedIn') &&
     localStorage.getItem('userType') === 'veterinarian'
   ) {
-    console.log('skjgh');
     if (window.location.pathname.includes('HayvanSahibi')) {
       window.location.href = 'landing.html';
     }

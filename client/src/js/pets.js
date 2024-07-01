@@ -50,8 +50,6 @@ async function getPetNames() {
 async function handleSelect(e) {
   const id = e.target.value;
 
-  console.log('switched');
-
   id && (await getPetInfo(id));
 }
 
@@ -70,7 +68,8 @@ async function getPetInfo(id) {
       .reverse()
       .join('/');
     inputType.value = pet.hayvantur;
-    selectGender.selectedIndex = pet.hayvancinsiyet === 'Dişi' ? 1 : 0;
+    selectGender.value = pet.hayvancinsiyet;
+    console.log(selectGender.value, selectGender.selectedIndex);
     inputHeight.value = pet.hayvanboy;
     inputWeight.value = pet.hayvankilo;
   } catch (err) {
@@ -80,9 +79,7 @@ async function getPetInfo(id) {
 
 getPetNames();
 
-console.log(btnReset);
 btnReset.addEventListener('click', () => {
-  console.log('clicked');
   // Reset all inputs
   inputName.value = '';
   inputChip.value = '';
