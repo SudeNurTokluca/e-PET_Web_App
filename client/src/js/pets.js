@@ -100,6 +100,7 @@ async function fetchDoneVaxinations(name) {
     if (res.status === 404) {
       // destroy datatable if no data is found
       $('#example2').DataTable().clear().destroy();
+      $('#example').DataTable().clear().destroy();
       // delete the data as well
 
       return;
@@ -114,7 +115,7 @@ async function fetchDoneVaxinations(name) {
       $('#example2').DataTable().destroy();
     }
     if ($.fn.DataTable.isDataTable('#example')) {
-      $('#example').DataTable().destroy();
+      $('#example').DataTable().clear().destroy();
     }
 
     const exampleData = data.filter(
