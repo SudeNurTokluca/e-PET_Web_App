@@ -6,11 +6,19 @@ const bcrypt = require('bcrypt');
 // GET
 function getVets(req, res) {
   sql`
-    SELECT * FROM veteriner
-    AS v
-    ORDER BY v.veterinerid;
+    SELECT k.klinikadi, v.veterineradi FROM public.veteriner AS v
+    INNER JOIN public.klinik AS k ON k.klinikid = v.klinikid
     `
-    .then(vets => res.status(200).json(vets))
+    .then(vets => {
+      vets = vets.map(vet => {
+        return {
+          clinic: vet.klinikadi,
+          vet: vet.veterineradi,
+        };
+      });
+
+      res.status(200).json(vets);
+    })
     .catch(err => {
       console.log(err);
 

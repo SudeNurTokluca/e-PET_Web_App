@@ -51,7 +51,7 @@ app.use('/auth', authRouter);
 
 app.use('/pet-owners', /* isAuthenticatedPetOwner, */ petOwnerRouter);
 
-app.use('/vets', isAuthenticatedVet, vetRouter);
+app.use('/vets', /* isAuthenticatedVet, */ vetRouter);
 
 app.use('/pets', /* isAuthenticated, */ petRouter);
 
