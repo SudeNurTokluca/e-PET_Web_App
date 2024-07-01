@@ -3,9 +3,16 @@ const router = express.Router();
 
 // route: /pets
 
-const { getPetById, getDoneVaxByName } = require('./pet.controller');
+const {
+  getPetById,
+  getVaxByPetName,
+  getPrescByPetName,
+  getPetExamining,
+} = require('./pet.controller');
 
+router.get('/vax', getVaxByPetName);
+router.get('/presc', getPrescByPetName);
+router.get('/examining', getPetExamining);
 router.get('/:id', getPetById);
-router.get('/', getDoneVaxByName);
 
 module.exports = router;

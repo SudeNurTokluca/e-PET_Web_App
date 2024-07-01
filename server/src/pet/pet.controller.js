@@ -19,7 +19,7 @@ function getPetById(req, res) {
 }
 
 // GET
-function getDoneVaxByName(req, res) {
+function getVaxByPetName(req, res) {
   let petName = req.query.name;
   petName = petName[0].toUpperCase() + petName.slice(1);
 
@@ -52,7 +52,76 @@ function getDoneVaxByName(req, res) {
     });
 }
 
+// GET
+function getPrescByPetName(req, res) {
+  let petName = req.query.name;
+  petName = petName[0].toUpperCase() + petName.slice(1);
+
+  sql`
+    SELECT rc.receteid, rc.ilacadi, v.veterineradi, rc.ilacbitimtarihi
+    FROM public.recete AS rc
+    INNER JOIN public.randevu AS rn ON rn.randevuid = rc.randevuid
+    INNER JOIN public.veteriner AS v ON rn.veterinerid = v.veterinerid
+    INNER JOIN public.evcilhayvan AS e ON rn.hayvanid = e.hayvanid
+    WHERE e.hayvanadi = ${petName};
+    `
+    .then(data => {
+      if (data.length > 0) {
+        data = data.map(item => ({
+          prescriptionId: item.receteid,
+          medicine: item.ilacadi,
+          vet: item.veterineradi,
+          endDate: item.ilacbitimtarihi,
+        }));
+
+        res.status(200).json(data);
+      } else {
+        exceptions.NotFound(res);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+
+      exceptions.InternalServerError(res);
+    });
+}
+
+function getPetExamining(req, res) {
+  let petName = req.query.name;
+  petName = petName[0].toUpperCase() + petName.slice(1);
+
+  sql`
+  SELECT th.tahlilaciklamasi, v.veterineradi, rn.randevuzamani, rn.randevuaciklamasi
+  FROM public.randevu AS rn
+  INNER JOIN public.tahlil AS th ON th.tahlilid = rn.tahlilid
+  INNER JOIN public.veteriner AS v ON v.veterinerid = rn.veterinerid
+  INNER JOIN public.evcilhayvan AS e ON e.hayvanid = rn.hayvanid
+  WHERE e.hayvanadi = ${petName};
+  `
+    .then(data => {
+      if (data.length > 0) {
+        data = data.map(item => ({
+          examination: item.tahlilaciklamasi,
+          vet: item.veterineradi,
+          description: item.randevuaciklamasi,
+          date: item.randevuzamani,
+        }));
+
+        res.status(200).json(data);
+      } else {
+        exceptions.NotFound(res);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+
+      exceptions.InternalServerError(res);
+    });
+}
+
 module.exports = {
   getPetById,
-  getDoneVaxByName,
+  getVaxByPetName,
+  getPrescByPetName,
+  getPetExamining,
 };

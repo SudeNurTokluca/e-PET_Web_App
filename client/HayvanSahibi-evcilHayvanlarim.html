@@ -510,7 +510,7 @@
                                 </li>
                                 <li class="nav-item">
                                   <a
-                                    class="nav-link vax-done-info"
+                                    class="nav-link vax-info"
                                     data-bs-toggle="tab"
                                     href="#kt_tab_pane_5"
                                     >Aşı Bilgileri</a
@@ -518,7 +518,7 @@
                                 </li>
                                 <li class="nav-item">
                                   <a
-                                    class="nav-link"
+                                    class="nav-link presc-info"
                                     data-bs-toggle="tab"
                                     href="#kt_tab_pane_6"
                                     >Reçeteler</a
@@ -526,7 +526,7 @@
                                 </li>
                                 <li class="nav-item">
                                   <a
-                                    class="nav-link"
+                                    class="nav-link test-info"
                                     data-bs-toggle="tab"
                                     href="#kt_tab_pane_7"
                                     >Tetkikler</a
@@ -581,15 +581,6 @@
                                         <label class="mb-2"
                                           >Evcil Hayvan Türü</label
                                         >
-                                        <!-- <select
-                                          class="form-select"
-                                          data-control="select2"
-                                          data-placeholder="Lütfen Seçiniz"
-                                        >
-                                          <option></option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                        </select> -->
                                         <input
                                           id="petType"
                                           class="form-control"
@@ -719,38 +710,6 @@
                                           <th>Tarih</th>
                                         </tr>
                                       </thead>
-                                      <!-- <tbody>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Parazit</td>
-                                          <td>X Veteriner</td>
-                                          <td>06.05.2024</td>
-                                        </tr>
-                                      </tbody> -->
                                     </table>
                                   </div>
                                 </div>
@@ -766,32 +725,12 @@
                                   >
                                     <thead>
                                       <tr>
-                                        <th>Reçete ID</th>
+                                        <th>Reçete Tipi</th>
                                         <th>Veteriner</th>
-                                        <th>Teşhis</th>
-                                        <th>Tarih</th>
+                                        <th>İlaç</th>
+                                        <th>Son Uygulama Tarihi</th>
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>Parazit</td>
-                                        <td>06.05.2024</td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>Parazit</td>
-                                        <td>06.05.2024</td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>Parazit</td>
-                                        <td>06.05.2024</td>
-                                      </tr>
-                                    </tbody>
                                   </table>
                                 </div>
                                 <div
@@ -799,30 +738,6 @@
                                   id="kt_tab_pane_7"
                                   role="tabpanel"
                                 >
-                                  <div class="row mb-2">
-                                    <div class="col-6">
-                                      <select
-                                        class="form-select input-group input-group-sm"
-                                        data-control="select2"
-                                        data-placeholder="Lütfen Tetkik Türü Seçin"
-                                      >
-                                        <option></option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                      </select>
-                                    </div>
-                                    <div
-                                      class="col-6 d-flex align-items-center"
-                                    >
-                                      <button
-                                        type="button"
-                                        class="btn btn-sm btn-primary"
-                                      >
-                                        <i class="bi bi-funnel-fill"></i
-                                        >Filtrele
-                                      </button>
-                                    </div>
-                                  </div>
                                   <table
                                     id="example4"
                                     class="display nowrap"
@@ -832,91 +747,11 @@
                                       <tr>
                                         <th>Tetkik Tipi</th>
                                         <th>Veteriner</th>
-                                        <th>Tarih</th>
                                         <th>Açıklama</th>
                                         <th>Detay</th>
+                                        <th>Tarih</th>
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>X Veteriner</td>
-                                        <td>06.05.2024</td>
-                                        <td>Parazit</td>
-                                        <td>
-                                          <a
-                                            href="#"
-                                            class="btn btn-sm btn-light-primary font-weight-bold mr-2"
-                                            >Detay Görüntüle</a
-                                          >
-                                        </td>
-                                      </tr>
-                                    </tbody>
                                   </table>
                                 </div>
                               </div>
@@ -961,43 +796,6 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
-    <script>
-      /* new DataTable('#example', {
-        scrollX: true,
-        scrollY: '10vh',
-        paging: false,
-        searching: false,
-        info: false,
-      }); */
-      /* new DataTable('#example2', {
-        scrollX: true,
-        scrollY: '20vh',
-        paging: false,
-        info: false,
-        searching: false,
-      }); */
-    </script>
-    <script>
-      new DataTable('#example3', {
-        scrollX: true,
-        scrollY: '37vh',
-        paging: false,
-        searching: false,
-        info: false,
-        language: {
-          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json',
-        },
-      });
-    </script>
-    <script>
-      new DataTable('#example4', {
-        scrollX: true,
-        scrollY: '40vh',
-        paging: false,
-        searching: false,
-        info: false,
-      });
-    </script>
     <!--end::Javascript-->
   </body>
   <!--end::Body-->
