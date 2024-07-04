@@ -61,7 +61,6 @@ function getOwnedPets(req, res) {
     });
 }
 
-// POST
 /* expected-body:
   {
     "name": "John",
@@ -77,12 +76,11 @@ function getOwnedPets(req, res) {
     }
   }
 */
+// POST
 function _addPetOwner(req, res) {
   const { name, surname, TCKN, phone, email, password, address } = req.body;
-
   if (!address) exceptions.BadRequest(res);
   const { city, district, neighborhood } = address;
-
   if (
     !name ||
     !surname ||
@@ -96,33 +94,20 @@ function _addPetOwner(req, res) {
   ) {
     exceptions.BadRequest(res);
   }
-
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   return sql`
   INSERT INTO hayvansahibi
   (
-    hayvansahibiadi,
-    hayvansahibisoyadi,
-    hayvansahibitc,
-    hayvansahibitelefon,
-    hayvansahibimail,
-    hayvansahibisifre,
-    hayvansahibiadresil,
-    hayvansahibiadresilce,
-    hayvansahibiadresmahalle
+    hayvansahibiadi, hayvansahibisoyadi, hayvansahibitc,
+    hayvansahibitelefon, hayvansahibimail, hayvansahibisifre,
+    hayvansahibiadresil, hayvansahibiadresilce, hayvansahibiadresmahalle
   )
   VALUES 
   (
-    ${name},
-    ${surname},
-    ${TCKN},
-    ${phone},
-    ${email},
-    ${hashedPassword},
-    ${city},
-    ${district},
-    ${neighborhood}  
+    ${name},${surname},${TCKN},
+    ${phone},${email},${hashedPassword},
+    ${city},${district},${neighborhood}  
   );`
     .then(() =>
       res.status(201).json({ message: 'Pet owner created succesfully' })

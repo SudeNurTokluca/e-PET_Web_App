@@ -44,29 +44,20 @@ app.use(
 );
 app.use(express.json());
 app.use((req, res, next) => log(req, res, next));
-
 app.use(cors(corsPolicy));
-
 app.use('/auth', authRouter);
-
 app.use('/pet-owners', /* isAuthenticatedPetOwner, */ petOwnerRouter);
-
 app.use('/vets', /* isAuthenticatedVet, */ vetRouter);
-
 app.use('/pets', /* isAuthenticated, */ petRouter);
-
 app.use('/clinics', isAuthenticated, clinicRouter);
-
 app.get('/', (req, res) => getDefault(req, res));
 
 module.exports = app;
 
 function log(req, res, next) {
   const start = Date.now();
-
   next();
   const delta = Date.now() - start;
-
   res.on('finish', () =>
     console.log(`${req.method} ${req.originalUrl} ${res.statusCode} ${delta}ms`)
   );
@@ -76,8 +67,6 @@ function getDefault(req, res) {
   const body = {
     status: 'The server is running...',
   };
-
   if (req.session.user) body.user = req.session.user;
-
   res.status(200).json(body);
 }
